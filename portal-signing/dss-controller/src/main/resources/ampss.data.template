@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sl:CreateXMLSignatureRequest xmlns:sl='http://www.buergerkarte.at/namespaces/securitylayer/1.2#'>
+  <sl:KeyboxIdentifier>SecureSignatureKeypair</sl:KeyboxIdentifier>
+  <sl:DataObjectInfo Structure='detached'>
+    <sl:DataObject Reference='@@FILENAME@@'>
+      <sl:Base64Content>@@BASE64DATA@@</sl:Base64Content>
+    </sl:DataObject>
+    <sl:TransformsInfo>
+      <sl:FinalDataMetaInfo>
+	<sl:MimeType>application/pdf</sl:MimeType>
+      </sl:FinalDataMetaInfo>
+    </sl:TransformsInfo>
+  </sl:DataObjectInfo>
+</sl:CreateXMLSignatureRequest>

@@ -1,0 +1,22 @@
+.tabs ul li.selected .deco span{
+	display:none;
+}
+
+.button{
+	overflow:visible;
+}
+
+.loading{
+	background-color:#FFF;
+	filter: alpha(opacity=85);
+	background-image:url(../images/ajax-loader.gif);
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+
+.foreground{
+	background-color:#000;
+	filter: alpha(opacity=50);
+}
+
+

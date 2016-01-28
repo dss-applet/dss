@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dss="eu:europa:ejusticeportal:dynforms:signing:profile:v1" targetNamespace="eu:europa:ejusticeportal:dynforms:signing:profile:v1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+  
+  <xs:element name="SigningConfig" type="dss:SigningConfig_Type"/>
+  
+  <xs:complexType name="SigningConfig_Type">
+  	<xs:sequence>
+  		<xs:element ref="dss:SigningContextRepository" minOccurs="0"/>
+  		<xs:element ref="dss:SigningMethods" minOccurs="0"/>
+  	</xs:sequence>
+  </xs:complexType>
+  <xs:element name="SigningContextRepository" type="dss:SigningContextRepository_Type">
+    <xs:annotation>
+      <xs:documentation>The repository of smart card signing context</xs:documentation>
+    </xs:annotation>
+    <xs:unique name="atr_unique">
+      <xs:selector xpath="dss:CardProfiles/dss:CardProfile/dss:ATR"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="SigningContextRepository_Type">
+    <xs:sequence>
+      <xs:element name="CardProfiles" type="dss:CardProfiles_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">List of card profiles</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Defaults" type="dss:Defaults_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The default algorithms and strategy</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Defaults_Type">
+    <xs:sequence>
+      <xs:element name="Strategy" type="dss:DefaultsStrategy_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The default strategy - either LIST or RANDOM</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MaxTries" type="xs:int" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used in the RANDOM strategy - the number of attempts before falling back to the DefaulDigAlgorithm</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DefaultDigAlgorithm" type="dss:DigAlgo_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Used in the RANDOM strategy - the Default Digest Algorithm to fall back to.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DigestAlgorithm" type="dss:DigAlgo_Type" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A Digest algorithm to try when the default is not known.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CardProfiles_Type">
+    <xs:sequence>
+      <xs:element name="CardProfile" type="dss:CardProfile_Type" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The smart cards explicitly supported by the signing service</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CardProfile_Type">
+    <xs:sequence>
+      <xs:element name="ATR" type="dss:ATR_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The Answer To Reset of the smart card.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Description" type="xs:string">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A description of the smart card.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="URL" type="xs:token" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A URL for the device manufacturer/provider web page.
+                    </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="APIContext" type="dss:APIContext_Type" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The smart card supported APIs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DigestAlgorithm" type="dss:DigAlgo_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Strongest digest algorithm supported by the card.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="APIContext_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+                An API supported by the smart card
+            </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="API" type="dss:API_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">An identifier of the API</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OS" type="dss:OS_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The operating system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="arch" type="dss:arch_Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The operating system architectue</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="libraryPath" type="dss:libPath_Type" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Path to PKCS11 driver</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="minJreVersion" type="dss:jreVersion_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Minimum Java runtime needed for this API</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DigestAlgorithm" type="dss:DigAlgo_Type" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Strongest digest algorithm supported by the card/API. Optional - if not set, taken from the card profile</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EventFilter" type="xs:NMTOKEN" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A filter that will be applied in the applet event handler to allow special behaviour of some cards to be managed. 
+          The value must be a fully qualified Java class name implementing eu.europa.ejusticeportal.dss.applet.event_api.EventFilter</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ATR_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The ATR (answer to reset), in hexadecimal form
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(((([0-9]|[A-F]){2})|(\.\.)|(\.([0-9]|[A-F]))|(([0-9]|[A-F])\.)|(\[.,.\]([0-9]|[A-F]))|(([0-9]|[A-F])\[.,.\])) ){0,31}((([0-9]|[A-F]){2})|(\.\.)|(\.([0-9]|[A-F]))|(([0-9]|[A-F])\.)|(\[.,.\]([0-9]|[A-F]))|(([0-9]|[A-F])\[.,.\]))">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The ATR is given as a regular expression of hexadecimal encoded bytes separated by spaces. Some positions in the string can take a range of values, for example: 1E 2F 24 .. 3D [1,5]F ..</xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DigAlgo_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SHA1"/>
+      <xs:enumeration value="SHA256"/>
+      <xs:enumeration value="SHA384"/>
+      <xs:enumeration value="SHA512"/>
+      <xs:enumeration value="MD2"/>
+      <xs:enumeration value="MD5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="API_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The unique identifier of the API
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PKCS11"/>
+      <xs:enumeration value="PKCS12"/>
+      <xs:enumeration value="MSCAPI"/>
+      <xs:enumeration value="NEWMSCAPI"/>
+      <xs:enumeration value="MOCCA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OS_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The operating system type.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="windows"/>
+      <xs:enumeration value="linux"/>
+      <xs:enumeration value="macos"/>
+    </xs:restriction>
+  </xs:simpleType>
+    <xs:simpleType name="CertElement_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Element of a certificate used in a hint.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="issuer">
+      	<xs:annotation><xs:documentation xml:lang="en">The issuer of the certificate</xs:documentation></xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="crl">
+      	<xs:annotation><xs:documentation xml:lang="en">The CRL URL</xs:documentation></xs:annotation>
+      </xs:enumeration>      
+    </xs:restriction>
+  </xs:simpleType>
+ 
+  <xs:simpleType name="arch_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The architecture type (bitness)
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="32"/>
+      <xs:enumeration value="64"/>
+      <xs:enumeration value="either"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="jreVersion_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The Java runtime environment version
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{1,3}(\.[0-9]{1,2})(\.[0-9]{1,2}){0,1}(\.[0-9]{1,2}){0,1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="libPath_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The path to PKCS11 library. Use "/" as path separator.
+            </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[^\\]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DefaultsStrategy_Type">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The defaults strategy decides which mechanism to use when deciding which algorithms to choose when the card profile is not known</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="LIST">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The LIST strategy will try all algorithms in the list until one works or until the list is exhausted.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RANDOM">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">The RANDOM strategy will try a given number of algorithms before attempting the default.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="SigningMethods" type="dss:SigningMethods_Type">
+    <xs:annotation>
+      <xs:documentation>The available signing methods</xs:documentation>
+    </xs:annotation>
+    <xs:unique name="code_unique">
+      <xs:selector xpath="dss:SigningMethods/dss:SigningMethod/dss:Code"/>
+      <xs:field xpath="."/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="SigningMethods_Type">
+    <xs:sequence>
+      <xs:element name="SigningMethod" type="dss:SigningMethod" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A signing method</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SigningMethod">
+  	<xs:sequence>
+  		<xs:element name="category" type="xs:NMTOKEN" minOccurs="1">
+  			<xs:annotation>
+  				<xs:documentation xml:lang="en">A code to categorise the method</xs:documentation>
+  			</xs:annotation>
+  		</xs:element>
+  		<xs:element name="needsJavaScript" type="xs:boolean">
+  			<xs:annotation>
+  				<xs:documentation xml:lang="en">true when the method requires Javascript to function</xs:documentation>
+  			</xs:annotation>  		
+  		</xs:element>
+  		<xs:element name="needsJava" type="xs:boolean">
+  			<xs:annotation>
+  				<xs:documentation xml:lang="en">true when the method requires Java to function</xs:documentation>
+  			</xs:annotation>  		  		
+  		</xs:element>
+  		<xs:element name="code" type="xs:NMTOKEN">
+  		  	<xs:annotation>
+  				<xs:documentation xml:lang="en">A code for the method, which should be unique</xs:documentation>
+  			</xs:annotation>  		
+  		</xs:element>
+  		<xs:element name="jspPage" type="xs:NMTOKEN">
+  		  	<xs:annotation>
+  				<xs:documentation xml:lang="en">Speficic jsp that supports the method</xs:documentation>
+  			</xs:annotation>  		
+  		</xs:element>
+  		<xs:element name="platform" type="xs:NMTOKEN" minOccurs="0" maxOccurs="unbounded">
+  		  	<xs:annotation>
+  				<xs:documentation xml:lang="en">Applicable operating systems for the method</xs:documentation>
+  			</xs:annotation>  		
+  		</xs:element>
+  		<xs:element name="parameter" type = "dss:Parameter" minOccurs="0" maxOccurs="unbounded">
+  		  	<xs:annotation>
+  				<xs:documentation xml:lang="en">Additional parameter(s) for the method, as name/value pairs</xs:documentation>
+  			</xs:annotation>  		
+  		</xs:element>
+  	</xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="Parameter">
+    <xs:annotation><xs:documentation xml:lang="en">A parameter for a SigningMethod
+    </xs:documentation></xs:annotation>
+  	<xs:sequence>
+  		<xs:element name="key" type="xs:NMTOKEN"/>
+  		<xs:element name="value" type="xs:string"/>
+  	</xs:sequence>
+  </xs:complexType>
+</xs:schema>

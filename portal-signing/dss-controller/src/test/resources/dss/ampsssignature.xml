@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<sl:CreateXMLSignatureResponse xmlns:sl="http://www.buergerkarte.at/namespaces/securitylayer/1.2#">
+    <dsig:Signature Id="signature-1-1" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+        <dsig:SignedInfo>
+            <dsig:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+            <dsig:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+            <dsig:Reference Id="reference-1-1" URI="27062013_en.pdf">
+                <dsig:Transforms>
+                    <dsig:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#base64"/>
+                </dsig:Transforms>
+                <dsig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <dsig:DigestValue>khbc6QKSpikunoKqsdTqfegsgeTu7YUn3NKvh3emF10=</dsig:DigestValue>
+            </dsig:Reference>
+            <dsig:Reference Id="etsi-data-reference-1-1"
+                Type="http://uri.etsi.org/01903/v1.1.1#SignedProperties" URI="">
+                <dsig:Transforms>
+                    <dsig:Transform Algorithm="http://www.w3.org/2002/06/xmldsig-filter2">
+                        <xpf:XPath Filter="intersect" xmlns:etsi="http://uri.etsi.org/01903/v1.1.1#"
+                            xmlns:xpf="http://www.w3.org/2002/06/xmldsig-filter2"
+                            >//*[@Id='etsi-signed-1-1']/etsi:QualifyingProperties/etsi:SignedProperties</xpf:XPath>
+                    </dsig:Transform>
+                </dsig:Transforms>
+                <dsig:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                <dsig:DigestValue>Wo8JxZ6usgJKDyL3DbBvJYUAa3vpih46gZGOPHmGKCg=</dsig:DigestValue>
+            </dsig:Reference>
+        </dsig:SignedInfo>
+        <dsig:SignatureValue>r5ruxgeRFxb0e4L7fDZPrDvLxFgy81yT1ZiSNnMQBfX4qG2BxUKtlmDWc4q9Sq8V6KaJruuacqVyO7bffPPHgJ0XnZ65cn2PT2p3eODD5kbq1VWzL/EhYLrdiQxymfCNaqSZmfWwJ32JQqNDZiTvNZ+G7pFXgW6pPbYrB+WyR5XMR5oBzsoMExLNTvx5NQ1W9YUDVzdFJrrC6wUAyp5UcvJg02nHxGN/WAZg3OTSRJsJoxjNRFWiZEBz2OErb8FHPQQeT6xHd3TTlvR0XG0IEsFZc6DS8Iw7jjc1YhfYlIROG4/JTq0JgZRbUGowYKXITvc20MeF7tiuI1aZQOKPEA==</dsig:SignatureValue>
+        <dsig:KeyInfo>
+            <dsig:X509Data>
+                <dsig:X509Certificate>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</dsig:X509Certificate>
+            </dsig:X509Data>
+        </dsig:KeyInfo>
+        <dsig:Object Id="etsi-signed-1-1">
+            <etsi:QualifyingProperties Target="#signature-1-1"
+                xmlns:etsi="http://uri.etsi.org/01903/v1.1.1#">
+                <etsi:SignedProperties>
+                    <etsi:SignedSignatureProperties>
+                        <etsi:SigningTime>2013-06-27T07:01:58Z</etsi:SigningTime>
+                        <etsi:SigningCertificate>
+                            <etsi:Cert>
+                                <etsi:CertDigest>
+                                    <etsi:DigestMethod
+                                        Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                                    <etsi:DigestValue>SYJmCptu/NELHQU9DE/1xigLNYQ=</etsi:DigestValue>
+                                </etsi:CertDigest>
+                                <etsi:IssuerSerial>
+                                    <dsig:X509IssuerName>CN=a-sign-Premium-Test-Sig-02,OU=a-sign-Premium-Test-Sig-02,O=A-Trust
+                                        Ges. f. Sicherheitssysteme im elektr. Datenverkehr
+                                        GmbH,C=AT</dsig:X509IssuerName>
+                                    <dsig:X509SerialNumber>152668</dsig:X509SerialNumber>
+                                </etsi:IssuerSerial>
+                            </etsi:Cert>
+                        </etsi:SigningCertificate>
+                        <etsi:SignaturePolicyIdentifier>
+                            <etsi:SignaturePolicyImplied/>
+                        </etsi:SignaturePolicyIdentifier>
+                    </etsi:SignedSignatureProperties>
+                    <etsi:SignedDataObjectProperties>
+                        <etsi:DataObjectFormat ObjectReference="#reference-1-1">
+                            <etsi:MimeType>application/pdf</etsi:MimeType>
+                        </etsi:DataObjectFormat>
+                    </etsi:SignedDataObjectProperties>
+                </etsi:SignedProperties>
+            </etsi:QualifyingProperties>
+        </dsig:Object>
+    </dsig:Signature>
+</sl:CreateXMLSignatureResponse>

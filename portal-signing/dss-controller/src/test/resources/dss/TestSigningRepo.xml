@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dss:SigningConfig 	xmlns:dss="eu:europa:ejusticeportal:dynforms:signing:profile:v1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- The cards explicitly supported by the signing service -->
+<dss:SigningContextRepository
+>
+	<dss:CardProfiles>
+	<dss:CardProfile>
+		<dss:ATR>3B 7D 94 00 00 80 31 80 65 B0 83 02 04 7E 83 00 90 00</dss:ATR>
+		<dss:Description>LuxTrust</dss:Description>
+		<dss:URL>http://www.luxtrust.lu</dss:URL>
+		<dss:APIContext>
+			<dss:API>MSCAPI</dss:API>
+			<dss:OS>windows</dss:OS>
+			<dss:arch>either</dss:arch>
+		</dss:APIContext>
+		<dss:APIContext>
+			<dss:API>PKCS11</dss:API>
+			<dss:OS>linux</dss:OS>
+			<dss:arch>either</dss:arch>
+			<dss:libraryPath>something</dss:libraryPath>
+			
+			<dss:DigestAlgorithm>SHA256</dss:DigestAlgorithm>			
+		</dss:APIContext>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	<dss:CardProfile>
+		<dss:ATR>3B BD 18 00 81 31 FE 45 80 51 02 00 00 00 00 00 00 00 00 00 00 00</dss:ATR>
+		<dss:Description>Austrian "e-card"</dss:Description>
+		<dss:APIContext>
+			<dss:API>MOCCA</dss:API>
+			<dss:OS>windows</dss:OS>
+			<dss:arch>either</dss:arch>
+			<dss:minJreVersion>1.6</dss:minJreVersion>
+		</dss:APIContext>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	<dss:CardProfile>
+		<dss:ATR>3B 7D 95 00 00 80 31 80 65 B0 83 11 C0 A9 83 00 90 00</dss:ATR>
+		<dss:Description>PT eId Card</dss:Description>
+		<dss:APIContext>
+			<dss:API>MOCCA</dss:API>
+			<dss:OS>windows</dss:OS>
+			<dss:arch>either</dss:arch>
+			<dss:minJreVersion>1.6</dss:minJreVersion>
+		</dss:APIContext>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	<dss:CardProfile>
+		<dss:ATR>3B 7D 95 00 00 80 31 80 65 B0 83 11 C0 A9 83 FF FF FF</dss:ATR>
+		<dss:Description>Not a real card</dss:Description>
+		<dss:APIContext>
+			<dss:API>PKCS11</dss:API>
+			<dss:OS>windows</dss:OS>
+			<dss:arch>32</dss:arch>
+			<dss:libraryPath>C:/Program Files/Gemalto/Classic
+				Client/BIN/gclib.dll</dss:libraryPath>
+			<dss:libraryPath>C:/Programs/Gemalto/Classic Client/BIN/gclib.dll</dss:libraryPath>
+			<dss:libraryPath>D:/Program Files/Gemalto/Classic
+				Client/BIN/gclib.dll</dss:libraryPath>
+
+			<dss:minJreVersion>1.5</dss:minJreVersion>
+		</dss:APIContext>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	<dss:CardProfile>				 
+		<dss:ATR>3B 7D 95 00 00 80 31 .. 65 B0 83 11 C0 A9 83 FF FF FF</dss:ATR>
+		<dss:Description>Not a real card - regex</dss:Description>
+		<dss:APIContext>
+			<dss:API>PKCS11</dss:API>
+			<dss:OS>windows</dss:OS>
+			<dss:arch>32</dss:arch>
+			<dss:libraryPath>C:/Program Files/Gemalto/Classic
+				Client/BIN/gclib.dll</dss:libraryPath>
+			<dss:libraryPath>C:/Programs/Gemalto/Classic Client/BIN/gclib.dll</dss:libraryPath>
+			<dss:libraryPath>D:/Program Files/Gemalto/Classic
+				Client/BIN/gclib.dll</dss:libraryPath>
+
+			<dss:minJreVersion>1.5</dss:minJreVersion>
+		</dss:APIContext>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	<dss:CardProfile>
+		<dss:ATR>00</dss:ATR>
+		<dss:Description>Not a real card - no API</dss:Description>
+		
+		<dss:DigestAlgorithm>SHA1</dss:DigestAlgorithm>
+	</dss:CardProfile>
+	</dss:CardProfiles>
+</dss:SigningContextRepository>
+</dss:SigningConfig>

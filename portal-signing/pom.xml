@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>portal-signing</artifactId>
+    <packaging>pom</packaging>
+    <name>eJustice Portal signing</name>
+	<parent>
+	    <groupId>eu.europa.ejusticeportal.dss</groupId>
+    	<artifactId>digital-signature-applet</artifactId>
+    	<version>0.14.4</version>
+    	<relativePath>../digital-signature-applet</relativePath>
+	</parent>
+	<profiles>
+		<profile>
+			<id>extras</id>
+			<modules>
+				<module>dss-mocca</module>
+			</modules>
+		</profile>
+        <profile>
+            <id>sign-jars</id>
+            <build>
+                <plugins>
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-jarsigner-plugin</artifactId>               
+		                <executions>
+		                    <execution>
+		                        <id>sign</id>
+		                        <goals>
+		                            <goal>sign</goal>
+		                        </goals>
+		                    </execution>
+		                </executions>
+		            </plugin>
+            	</plugins>         
+            </build>
+        </profile>
+		
+	</profiles>
+	<modules>
+        <module>dss-applet</module>
+        <module>dss-applet-6</module>
+        <module>dss-common</module>
+        <module>dss-controller</module>
+        <module>dss-mscapi</module>
+        <module>dss-mscapi-crt</module>
+		<module>dss-conf</module>
+    </modules>
+</project>

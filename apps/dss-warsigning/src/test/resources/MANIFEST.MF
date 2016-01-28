@@ -1,0 +1,765 @@
+Manifest-Version: 1.0
+Class-Path: ej-portal-dss-common-0.13.1.jar ej-portal-dss-mscapi-0.13.
+ 1.jar ej-portal-dss-mscapi-crt-0.13.1.jar dss-document-4.0.4-stripped
+ .jar dss-spi-4.0.4-stripped.jar dss-common-4.0.4-stripped.jar apache-
+ commons-2.6-stripped.jar pdfbox-1.8.3-stripped.jar slf4j-1.6.4-stripp
+ ed.jar xmlsec-1.5.6-stripped.jar bcprov-jdk15on-1.49-signed.jar bcmai
+ l-jdk15on-1.49-signed.jar bcpkix-jdk15on-1.49-signed.jar
+Build-Jdk: 1.7.0_45
+Built-By: MacFarPe
+Permissions: all-permissions
+Created-By: Apache Maven 3.1.0
+Caller-Allowable-Codebase: eapptest02 ark.athens.intrasoft-intl.privat
+ e e-justice-test.intrasoft-intl.com e-justice.stress.europa.eu e-just
+ ice.test.europa.eu e-justice-forms.intrasoft-intl.com 158.167.240.176
+  158.167.242.35 calluna.cc.cec.eu.int zaraza.cc.cec.eu.int hesperis.c
+ c.cec.eu.int odontites.cc.cec.eu.int saponaria.cc.cec.eu.int aster.cc
+ .cec.eu.int ajuga.cc.cec.eu.int adonis.cc.cec.eu.int agrest.cc.cec.eu
+ .int
+Archiver-Version: Plexus Archiver
+Codebase: eapptest02 ark.athens.intrasoft-intl.private e-justice-test.
+ intrasoft-intl.com e-justice.stress.europa.eu e-justice.test.europa.e
+ u e-justice-forms.intrasoft-intl.com 158.167.240.176 158.167.242.35 c
+ alluna.cc.cec.eu.int zaraza.cc.cec.eu.int hesperis.cc.cec.eu.int odon
+ tites.cc.cec.eu.int saponaria.cc.cec.eu.int aster.cc.cec.eu.int ajuga
+ .cc.cec.eu.int adonis.cc.cec.eu.int agrest.cc.cec.eu.int
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/MSCAPIDSSAction.
+ class
+SHA-256-Digest: rDH6wKsoThOqNhMkSgSPy5yyHRt+E6v9TrqayU4xbqc=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/LoggingHome.cl
+ ass
+SHA-256-Digest: lY1mLvvTSIhIWcDIN1ous21IQCFL2jZGTpCln+JY0yQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/FileDialog$1.cla
+ ss
+SHA-256-Digest: Y5PpK1RGxw5BDI5f9CZUHkr0Cg/EKLepdVJShCYZV+4=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/FileChooser.class
+SHA-256-Digest: d8IqQprzdZwQr2MXdpic5MFHj+kdualRaP4xevZZvcg=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UIEventHandler
+ .class
+SHA-256-Digest: pTrtywpM3EbeoMMOiLRF3dPJBjFFV+voV+yv5AqYtfA=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/RefreshSigningC
+ ontextAction.class
+SHA-256-Digest: +tOKEEWXpVKgo4pZMw5DDenKP5rM2Oaa/wfc5YVubqs=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/MoccaPinEntryReady.cla
+ ss
+SHA-256-Digest: MLIlOKf46L/FBc6r6lPubxHTZheR9PTgQ/kL3joADuM=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SelectPkcs12Fi
+ leHandler.class
+SHA-256-Digest: W/EUSEYgszwvVuMHZzz84vbkaY2Yrd9lP6TZcbDGS2U=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/SigningStatusRefreshedH
+ andler.class
+SHA-256-Digest: W+M1qMWzBNmIWKipsWkJrwqsWt75kCifC3znqcHRKXw=
+
+Name: eu/europa/ejusticeportal/dss/applet/DssApplet.class
+SHA-256-Digest: xdwHJ4QHBI7zmSRz4+mqqkup7/l7lYv9ozm3/nTbxYE=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/MessagesReadyHandler.cl
+ ass
+SHA-256-Digest: UTfxOsNx9CPrPnEvarXhrXPHOIpn9E75HAicbUvJ9KU=
+
+Name: META-INF/maven/eu.europa.ejusticeportal.dss/ej-portal-dss-applet
+ /pom.xml
+SHA-256-Digest: SSUoQhN1M8SPsPi7jGljlrHRDK8KSE1h1+RZ4V07roY=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/NewMSCAPIDSSActi
+ on.class
+SHA-256-Digest: m85In7p/qq2TWbiACQU6HhpXJelijAsxOZRerwwDYJg=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/TokenizedLibra
+ ryPath.class
+SHA-256-Digest: HqsOJ6Gjn6/K02MOULiGloksachW24Q0J1Ei4diZ48E=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/OpenPdfAction.c
+ lass
+SHA-256-Digest: tCZG1N/WVT8oH0fdYRZDfEt8yr+5sS6VSIstUiyNuso=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UI.class
+SHA-256-Digest: SnBofY1/DUc3EA7/de7JKzrg+kxWzyZxK9jNHLMOQ7s=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/VersionCheck.cla
+ ss
+SHA-256-Digest: q4BzFbzscWTM+wIvMidzz2VxUWDQkoFoGHmncx0RLGI=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Select.class
+SHA-256-Digest: 62aMc+X0FYCWQnEhJwYefOdt1DVShhZCzAej3kEzjp0=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/GetSigningCont
+ extCbHandler.class
+SHA-256-Digest: p4zNkxeTx6rk2dKEE4+HMCaHKSGV9glFP5X0sOh7U20=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Certificate.c
+ lass
+SHA-256-Digest: 0Pohiui3ffEfqxkvRLOV8hBxQyVwh+IXzT/HgqQgBGk=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/AppletInitialisationFa
+ ilure.class
+SHA-256-Digest: +ohqV7+VNVhBImfHSXQuKhRQZzwQlj+mbr/4IlcjPIo=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/EventHandler.clas
+ s
+SHA-256-Digest: 3dcay0bpOxI0wnlEcsuvRuEb+KScELX09MTSvZHKbGw=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/MessageBundleH
+ ome.class
+SHA-256-Digest: fmUxaatC00vwwJ8VOzDZ+fxw8Qmotx0wvTgKKRylCjA=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Component.cla
+ ss
+SHA-256-Digest: Y2oxF3XuD2uxSYwJ21LoL6blXrYPQ5UZB10UU4dp2bE=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/AsynchronousPa
+ sswordInputCallback.class
+SHA-256-Digest: vsDtQkw3UOPYuw2g4Jrl6VXPWHMPBIh9qeLthTnogkA=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/ViewPdfHandler
+ .class
+SHA-256-Digest: yAOOv1HIMahf+YcGqkJ9UbhM8i3pb2g/30dX+qsPwdQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/UIActivation.class
+SHA-256-Digest: EGZuv72xZQmMcZ5PRi6978mkAUsbkx8MAG5+Hbq95HM=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/SigningErrorHandler.cla
+ ss
+SHA-256-Digest: X577QxlcTexUshF7xNJy9SJhK/Yzd2RhXrEwn28x+gM=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/MacUnsafeCheck.c
+ lass
+SHA-256-Digest: QrWAh7Rj0d074aHXKJe3H7VOcrRad3iWF4OkgBzrYuo=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/TokenManager.cla
+ ss
+SHA-256-Digest: EzV/TQt92jHCXNpRWXa9zhHhQpVRGysU9K9SM+X/SmM=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Link.class
+SHA-256-Digest: kKkHI1qjb0eZD9WKmz83pPDMHumQjoxhNXnb0/DXXyI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/FileSeeker$Wil
+ dcardDirectoryFilter.class
+SHA-256-Digest: IH7v9GpLsbmPfKVkm67YXwEj15NWjPvZAz9uXzH1cLs=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/CallbackHandle
+ rDelegate.class
+SHA-256-Digest: FvZuzQhKu9gWPCyPFmFpseJyOPCZoOj25VueDCLK3eg=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UIEventFilter.
+ class
+SHA-256-Digest: cXcRyTbr2qsfylO+6h/V5+ewfNfEEoS5+jJBLQJFL9g=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/OpenSelectFileAc
+ tion$1.class
+SHA-256-Digest: 4NydlC1E2K2K1jZ07KwAIGNe7g6HKT6TlfoFah4vc1Q=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/PKCS11DSSAction.
+ class
+SHA-256-Digest: 3s06ldMeMGkl3mI2sQ8PRYraKhpzsClmejdd7QCr/aQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ClosePasswordDialogHand
+ ler.class
+SHA-256-Digest: KnC1kzYTOL0eq6DWNmvo2ZWP4PT/qunw0VdKcUEuTDs=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/PKCS12Fil
+ eFilter.class
+SHA-256-Digest: GWuX2XT9hsr4COZfIrrusqZlAhz/fRI4uFd6hyawn0g=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/OpenSelectFileAc
+ tion.class
+SHA-256-Digest: wmAEnDcF6ukwZb8Idl/R29rENq4wfEN26gwYBXieBgg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ReloadAppletHandler.cla
+ ss
+SHA-256-Digest: Y4ZSu2DiP5g7Q9XTdw3/VL9++XfQFx1cEP5w0miBm5w=
+
+Name: eu/europa/ejusticeportal/dss/applet/event_api/EventListener.clas
+ s
+SHA-256-Digest: 9fdNQNMr8RVJxcK7gdNa4VgVqDXieqce5dTshYwmCYI=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ShowOtherCertificates.
+ class
+SHA-256-Digest: 59hHClwNsONHJOBQRNxFUzqYx0PER7zNsK5muDZ3WSo=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/TokenManager$1.c
+ lass
+SHA-256-Digest: EbUDUDiDPO9r/fOsj5UT6aWt6c0RTl5rKC6MaR8afHQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/FileChooserHom
+ e.class
+SHA-256-Digest: vdq26GLSd00m65M51kD0kwhkjJ8etCWi/pz6Cdat6GA=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/LoadLibraryActi
+ on.class
+SHA-256-Digest: YniXKTP+PHOOraaS/At24zb1dkTrC7xKiEonLwY1788=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/AbstractDSSActio
+ n.class
+SHA-256-Digest: JEZlECuHKk2QGHqPEOvqGoCmxE6sm0F/NvVvUeFbMHE=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SignOtherCerti
+ ficateHandler.class
+SHA-256-Digest: OFqX2rl69zZA1vsRyhRYAaHd4NXREe8eNZbQ6URWt7Y=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SelectPkcs11Fi
+ leHandler.class
+SHA-256-Digest: d3tP89QdtUmBdgXRDbFZ+BGOX6bFXpy5tDPGuyQdx88=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/LibraryUpdatedHandler.c
+ lass
+SHA-256-Digest: OeAzOc9oK1HsSph5GxnfKms2wHVs3msacBNIu3Bzgy4=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/SessionKeepAli
+ veHome.class
+SHA-256-Digest: GAzpoFpgbckY6oZSk8QmLLDM0faQGIBNpKOxXkWhYmo=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/StatusRefreshedHandler.
+ class
+SHA-256-Digest: +BSixNJEA1xmsYynyo94nhy1+cf9JzhCnrob/KTEOsM=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/AppletStartedHandler.cl
+ ass
+SHA-256-Digest: suxwosdfaLlRJ47ksT1EujelDhxR+ZyDFSUZYb2REmk=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIEventListenerDelegate
+ .class
+SHA-256-Digest: YrdYISkf7W9KWrtDxIvASpPGZkbfj7KtHmlsd1UqhqI=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/CertificatesRefreshed.
+ class
+SHA-256-Digest: S4JrECGsunylXALS9cKgHNvE8NBlxCuxA7Vrd9UYieI=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/ShowMiddleware
+ HelpHandler.class
+SHA-256-Digest: vtJhp7znmFqf12cAZ80DpCGU+QWDNJzK1dQhoxPA8f4=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIFunction.class
+SHA-256-Digest: ZG9u/GhOBJMuUMAkzV0q0a85sHBM8M/ad47FyU00Cs4=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/ShowOtherCerti
+ ficatesHandler.class
+SHA-256-Digest: C1VR/GpZp9K6g/k7BuPA389flILG4QxuQztKy9vm/T8=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/P12Updated.class
+SHA-256-Digest: fUkOBYlrUOQLWrD+idQ9qYhc6Z3jNBBI1e0hzwFfATc=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIState.class
+SHA-256-Digest: 2jdcBmDyoJ1px+hBel4kuj0erpsTL3TirP3yMdDQoeI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/FingerprintHom
+ e.class
+SHA-256-Digest: ejR0ZKBTkiEvpHe9/4C0oq2kqPJBuIDHzItb4zaa5TE=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIEventListener.class
+SHA-256-Digest: fbNE+dWBq+nNi0BI9qd+uvJ5sQBNEgk2b1NXSjl2hUs=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/GetSealedPdfCb
+ Handler.class
+SHA-256-Digest: oot/K1/tl5f782DsV9sybavwaDFCssZQHy3UWCFkRwE=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/AppletStoppedHandler.cl
+ ass
+SHA-256-Digest: Qil4sY+8iBcEkyCaZeLdCeVNddh+6+GdK7CJSVlndzs=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/SigningMethodChangedHan
+ dler.class
+SHA-256-Digest: 0qZo3K8P1NN0vIh7X0YimRkjEBJAe38Yl4IHMqolC1o=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIActivationHandler.cla
+ ss
+SHA-256-Digest: aNyQ6oIticoJGZ0QN+WdBqgUt4Y3oZlDXV4B4WtvePQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/LogStatisticsC
+ bHandler.class
+SHA-256-Digest: vuP5I7PzxCGwDTujw4V6VpycQKlUfdSnTe1L6E6qSTI=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/JavaSixClassName.clas
+ s
+SHA-256-Digest: O01D8up5NFRxYVzfv4UREfuejZzqRJs4ka48bgdI9s4=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/SigningStatusRefreshed
+ .class
+SHA-256-Digest: +O8I63zwyPq6miqVwT7/mIbAmlsylNquATqcsK8n+ho=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/MessagesReady.class
+SHA-256-Digest: Wt2WmcDjzq8Pw1tnTvcD+wcJpp4NKx7A9ZtDYEWGBlc=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ClearMessages.class
+SHA-256-Digest: 8tg5uu0p/YCEren0oFeVjA5aE1lX7PWN+a1Enmq3fQg=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UIEventHandler
+ Delegate.class
+SHA-256-Digest: yWN8nnZeuBrHweQQrOHajsPKHFA4VKjq9rNO1PLQgz0=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/SigningContext
+ Home$1.class
+SHA-256-Digest: b6PY8MCqVa37E556RtQt+chDqD5z4ksIgEy4i3k3k0k=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/CallbackHandle
+ r.class
+SHA-256-Digest: N0JkfdDxV2Dkt6G1+FFo2Oc5MNTwx8Fgc7f07cUFwqg=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/SessionExpired.class
+SHA-256-Digest: JDLxSHcFsO85TEp0ha3/HOREY6DO7yNQUM27oZDmjf8=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/UploadSignedPd
+ fCbHandler.class
+SHA-256-Digest: ZyvnD9t909wOrlaDVFvbFwwoDQlYxci8J3FX3Hg0+Ic=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ShowMiddlewareHelp.cla
+ ss
+SHA-256-Digest: Lib6qS3yKt358vlxoh1laUukNqryP2F3DAdpj4oBShI=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/SigningError.class
+SHA-256-Digest: aFj1jPpClDH6pza3P8qPtQC0nuZd6+qNneuG2Y7LD8s=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/OperationCancelledExc
+ eption.class
+SHA-256-Digest: ViWDcN+rnmZp8UPqjlNyY+QZ4zRqlABBcOTDWuymN2o=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/RefreshTokensAc
+ tion.class
+SHA-256-Digest: k2RXkIQIGhhkGaDbDwnLtpmoCjWy9Kid8BBMoNm+LtY=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/ChangeCertific
+ ateHandler.class
+SHA-256-Digest: bfGA7YBB+gJaNWt7GlXx0qNrkVsPjp87HAMYkRwTdWM=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/PasswordHome.c
+ lass
+SHA-256-Digest: DLcUhCRUklJeUSZpu38sQjFps8AyVHbAXWiNaJIeFog=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/AppletInitialisationFai
+ lureHandler.class
+SHA-256-Digest: LtoaxqWS/iKcWEonQ118yNprBIc2wpeiQerlrxpm7DU=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/PKCS12SignatureA
+ lgorithm.class
+SHA-256-Digest: E11aFfvBW5OoU8FwOzN192zHwv+h3n3csRQSqdSmmKg=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ActivateCardTerminalWa
+ tcher.class
+SHA-256-Digest: jlw8zLx5mDtLcavJ/LxEGAMICuZfAOJsrVjoJ/i6VlM=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/CertificatesRefreshedHa
+ ndler.class
+SHA-256-Digest: 6iO7v9aPTYhC3z9jR8ZmH7vEwigfnJDMJ3Qmw5IADs0=
+
+Name: eu/europa/ejusticeportal/dss/applet/DssApplet$JreVersionChecker.
+ class
+SHA-256-Digest: vHgwmkJdcDVaa05J/A7hhkIsDC9fu9KecIkyV9SSp3w=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ShowCardProviderWebsit
+ e.class
+SHA-256-Digest: i8KvZ//IQoqU894vKp6ToddJz3MXO/2jRGv3JYm0hl4=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SaveSealedPdfH
+ andler.class
+SHA-256-Digest: Z9ndn5t2tkxMVzOjMtql9AObXp1ZNzwqS5Fiuwc5NJI=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/OpenSelectFileAc
+ tion$Opener.class
+SHA-256-Digest: 9jnKrhhmTOktVtsAaQolJ2UnixVP+vedWu3qigdMgog=
+
+Name: eu/europa/ejusticeportal/dss/applet/DssApplet$JreVersionChecker$
+ 1.class
+SHA-256-Digest: y7OFoUrpQJZfI4vUrzLDfLSPHRj+T8M2R9DHxIAneD0=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/SavePdfAction.c
+ lass
+SHA-256-Digest: 7G0qlPHltllDWY4zyMXYJQ8wPfvgGF8A9xTwL8HSKPA=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/JavaScriptUiControlle
+ r.class
+SHA-256-Digest: GSWoKtgWLhThitxCvSbty2m+ViInnnp9LvUk7Pwju80=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/LoadingRefreshed.class
+SHA-256-Digest: Zf/fI96qLesdOZr9R9OGoAR3WBiFUnmFiOWkfbcFvQ8=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/UIController.class
+SHA-256-Digest: 3wmL0Bu3Td4BSaxYqO9JcIO9sQh/dvFdpKrfbltHHwI=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Message.class
+SHA-256-Digest: jU8AWaD8pY9whyejMhDxQJrBCw2BYT91QVMdfqwSOko=
+
+Name: META-INF/maven/eu.europa.ejusticeportal.dss/ej-portal-dss-applet
+ /pom.properties
+SHA-256-Digest: +1Kzu+1qG8gSyFsfxu/6ChLfCy0O8Iz4vXqyvIQ0fhw=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UISynchEventHa
+ ndler.class
+SHA-256-Digest: 3wrOokwnmBLwXZWHIy7OMitCA3C2rFMrLbmSKOB5cCQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UploadAppletLo
+ gHandler.class
+SHA-256-Digest: wvDmADihrxVnoPr6cL0YXaTPfQerA9eCJ9o19mnF9Y8=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/UserSurvey.class
+SHA-256-Digest: c0+qvEltz2CAFGYHJUhoYICl0CBCHwJLjBrzsT22HCw=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/EventHandler$1.cl
+ ass
+SHA-256-Digest: ZzZ0XdMJBo1cJWBjZFoK5JgOx5Zdfu4tPTmK+Dq7YO0=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/PasswordProvid
+ edHandler.class
+SHA-256-Digest: DWNIdiHCkvnRi0IC7TgpqulK7VMYJTzjrjk7qncT5OI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/SignatureInfor
+ mationHome.class
+SHA-256-Digest: zTmB0NGq8ezVlxJbXFAAxUtvFcd38ZGIiIL+V3sHcvQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/server/AsynchronousServerCal
+ l.class
+SHA-256-Digest: oKQDnheC5kY8iJeTMMkXGPpDy03BVm05+dWRU+wj1nw=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/CardAdvice.class
+SHA-256-Digest: KTrxP/vj1OSpDLGHM1xubrsxLQmVj3O51NA9KIIiCRc=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UserSurveyHandler.class
+SHA-256-Digest: uk/4GsATd8+pTcrJKBduxUJRPBUnrbMTmsrZFkB7O0A=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/PasswordInputDia
+ log.class
+SHA-256-Digest: oX+Dc7+TWhGgurhst+xqlMsT1MvSv0MsWXXTuRvxBYA=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/ClosePasswordDialog.cl
+ ass
+SHA-256-Digest: v+mwKdj+mEb9K76owKKdPgHTkQW7xVCxvT/rFeDhBrQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/event_api/EventFilter.class
+SHA-256-Digest: V1AymAWPHzfuffvC9uGrrX2u8nN3a5VFVb2O24SkwA4=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SaveSignedPdfH
+ andler.class
+SHA-256-Digest: Ii2O/UrffjifBIXEsfKqCJCPpkJgHPWFlL6kAoKrcXs=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/filter/ReloadA
+ ppletSigningContextFilter.class
+SHA-256-Digest: 9MAsLR+1iYOfRwBBDufM1wU/BPfrTofi4O8czjasOfc=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/AbstractCbHand
+ ler.class
+SHA-256-Digest: 6Iv3Flo3ua57i+sy+hpvG1Cb0NMIKOL6WNR3UF5ALGI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/SigningContext
+ Home.class
+SHA-256-Digest: o0KxzRrQSx1SR9a9P7vg4jf9InmtH4fBJbJCSz6Cw0o=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/AsynchronousCa
+ llerHome.class
+SHA-256-Digest: BjW6Gh0XKgp8ngs+scCTRnRCiF+VlwidgNsCS8EN5lE=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/AppletInitSema
+ phore.class
+SHA-256-Digest: GnDpwagowjTHLrhm36D5bWfYrNHWIvlXZAbFVxg2iGg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UI$1.class
+SHA-256-Digest: 2zr8/jdl7yEfw0/2Bwy6vZOzcp0JqLC73VsnB5ESx6E=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/FileChooserImpl.
+ class
+SHA-256-Digest: x88HGCEtxltHs2DMQ/yivyPI4eScDNAq6xbQYHs7z4I=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/CertificateSelected.cl
+ ass
+SHA-256-Digest: VaE+ATu0pFrCSfohRYyoGMk0VDW6vIN7dyjvgNsQ/fg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/LoadingRefreshedHandler
+ .class
+SHA-256-Digest: b/dj1zgnAAbm0sVAH7ubXkQTOyRq7emHxM3KPeB87Vs=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/CertificateSelectedHand
+ ler.class
+SHA-256-Digest: MIMV2+L1do3Zph0zrGTRzWHch15gXmoIVzrdwLMWZc0=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/PDFFileFi
+ lter.class
+SHA-256-Digest: UxM1lFMFXKGM+6wzp65nTxOEJJcH7aQ+n2eSb5YZgrU=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/VendorCheck$1.cl
+ ass
+SHA-256-Digest: RmwxSSaQxcEZmO8CYxraf08j+nTVnrsVEpUtrpi7N1E=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/UIControllerHome.clas
+ s
+SHA-256-Digest: EECy8R48vuOa2H1yzuGilNRmX9xFKD4r3pu0BSEHOlA=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/AbstractDSSActio
+ n$1.class
+SHA-256-Digest: 2Q+L2wGhCP5Yg/0cb+6fROFE3cKQiXDulQbta7m46NA=
+
+Name: eu/europa/ejusticeportal/dss/applet/server/AsynchronousCaller.cl
+ ass
+SHA-256-Digest: nsQb4QN8Fr3JhL/V3L6XoTcL+8kTvK7rHoNLQwdD1fg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ClearMessagesHandler.cl
+ ass
+SHA-256-Digest: IfcMLAzsD7j7xZ347rfwlSxxwVDiE19NGA+P8m/VzG8=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ActivateCardTerminalWat
+ cherHandler.class
+SHA-256-Digest: dpFVG940m1F4BwOwD3ucybGOqn7PMt6zhn+yKlIpjt0=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ShowOtherCertificatesHa
+ ndler.class
+SHA-256-Digest: ZApQ12DvTbJIjILABpkGV3+vIubpT9dR1eMH4HDSy3o=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/SigningAction.c
+ lass
+SHA-256-Digest: ubLtfhcHPAsA/ow/7h3931185ThBLO6KtXCmWnyQzM8=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/ComponentStat
+ e.class
+SHA-256-Digest: a+ys5KUJchMQL3XFu1hhiLUmUpOgHVHIMq/f8A3LPpE=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/PasswordInputFac
+ toryImpl$1.class
+SHA-256-Digest: vSrEBd//IkX5xvIo3BLVoKCPueSgKaN0EQ4ptPKqg2c=
+
+Name: eu/europa/ejusticeportal/dss/applet/server/ServerCall.class
+SHA-256-Digest: TlLDMfVqhCGKJa/au6yyXl2J1qzPd22mzXvJqyrMqUI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/UnknownTokenSign
+ ature.class
+SHA-256-Digest: ueUYhZZO078Ticg7JBbdo8/Vj5fzSJrcqEpK3KaklrQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UIState$1.class
+SHA-256-Digest: gabjjuTexLE76xzJKV+o9deOk6MwznK5UmeSXaJNyT8=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/ErrorReportHan
+ dler.class
+SHA-256-Digest: c0WALw7Gou0CNJurVZXOtpGi1bWQK7jVIPXEZmdVd90=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UISynchEventEx
+ ception.class
+SHA-256-Digest: 8AwP3K/Wk1ibalDUUvz2gJ+Plfpyl9oOjz7B3wR6csM=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/VendorCheck.clas
+ s
+SHA-256-Digest: KUa+Sr6bk1r6hhOwiuf5ja151BvjytKKfGHt+GipfhI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/NewMSCAPILoadLib
+ raryAction.class
+SHA-256-Digest: 8uWGrFRMh8vydWTgFkXINkw/t4m+XgCgaDTjQenELfg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/ShowMiddlewareHelpHandl
+ er.class
+SHA-256-Digest: pN5hL+xAyEGQk/YcapzjwNii/4rjdB95+fz+VRmRPLo=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/FileFilte
+ rUtils.class
+SHA-256-Digest: 52rbUOxPth3cmaJsVI25O7ZzdUjCZ18Og4AaeJuDWok=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/CardAdviceHandler.class
+SHA-256-Digest: HkoMYlIZSmMoq+In+5NmYt0SO5PlOXT5/PQ/srRpbPI=
+
+Name: eu/europa/ejusticeportal/dss/applet/event_api/Event.class
+SHA-256-Digest: H385GSxjLInwla/P8tm75tnfacRWlEgUdpcUMSMez1g=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/PdfSignedOk.class
+SHA-256-Digest: 5vsr9s6a3cUqIZjZrWKMGWpZBWZc8MslLXZ4t8Xe+uQ=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/CKRCodes.class
+SHA-256-Digest: JgYG20/E0KKwBCJIFB8OenRHUobh/zKfIjXrIGQ5kJE=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/AppletStarted.class
+SHA-256-Digest: 7Lio+O9vzwuCAzQtefv+4Kl/E3vkF5BipFsL7HEvBY0=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/FileSelec
+ tionMode.class
+SHA-256-Digest: gyAb/fvbNed6H+qwuiHSFeknTZ/tGFabQT1cfxqlnkk=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/PDFHome.class
+SHA-256-Digest: HVsUwLYJyeP29Y+W/xSxo2CqSmPKiuoTUVHghxYmwHE=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/UploadAppletLogHandler.
+ class
+SHA-256-Digest: /ZT0LPf9hgxsLOqS/A47eXUKC9jsuTiHqlit0eDqatk=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/SaveSelectFileAc
+ tion.class
+SHA-256-Digest: KzRiMwWT8gQC3gcj11l7rJwsUfWfOx1nM7o1v5I5FoA=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/CardTerminalWa
+ tchService.class
+SHA-256-Digest: fSaBL/oYz7qt9igtMSL9MIvbX8DJWS2dyCVXsfNYTE0=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/P12UpdatedHandler.class
+SHA-256-Digest: KJ2PvkkXhQr7laGTI6AQpJkDYR/ltlpNctaD0+fEWjw=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/CardTerminalWa
+ tchServiceHome.class
+SHA-256-Digest: BEwYAXhFaKOKF1BfgZ11cyhOq5SN6fZU9mlyBkWM38Y=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/CertificateDispl
+ ayUtils.class
+SHA-256-Digest: oL2Xhsk2dKkU5EaFYwWCrNGYsDarjd9z+Dbc1ow0r9o=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/RefreshCertific
+ ateList.class
+SHA-256-Digest: ipAuSwUbUg7+zhW8o8X16Z/QZN5IhCOxkjhpIPyJTLA=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/filter/Refresh
+ TwiceSigningContextFilter.class
+SHA-256-Digest: WXAUOiKajly57fFxfp2BOeHJIiBPvj6XWix9oOySeJ8=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/SigningMethodH
+ ome.class
+SHA-256-Digest: Ritbw9fxMdKfQ/r4EidEO/HcUlRWxXqROYtGlfQsPfU=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UIEvent.class
+SHA-256-Digest: Q5C+7Q/OvO2/EaVBbkqq+NUf93P2lSY2HXf//fvcPjw=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/PKCS11Fil
+ eFilter.class
+SHA-256-Digest: PIolmjpvkla8x107VWbyIBOP9oDr4LPIBYivyUJKNOA=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/LogSigningInfo
+ rmationHandler.class
+SHA-256-Digest: cplKbZd9KnKN+lSy+x4vS8/1Zh5uwjjMBU2oLJ1mD3M=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/filter/AbstractF
+ ileFilter.class
+SHA-256-Digest: PfG1YNkqgesAGOYOSDunAKPApFwweQbSlCxJ+FHVkZs=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/FileSeeker.cla
+ ss
+SHA-256-Digest: vDIixAZTOHlZ5v/c06WOZyHWQ9/5pIJ/f7kJ/ccmr6o=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/PasswordInputFac
+ toryImpl.class
+SHA-256-Digest: lZ1OuwLXaf5PKrFvfKIx2EEAvtGgDTZSHZJrn0uhQ8o=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/service/EnvironmentIni
+ tAction.class
+SHA-256-Digest: PGJp8CurpRuTaIqUFjtLpWodtm+NO4drlVjYt2JxuG0=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/ReloadApplet.cl
+ ass
+SHA-256-Digest: +azAy1NMuXah7S37f2qAuHIqcpQfged8fXDrz/ZpPHs=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/UploadAppletLog.class
+SHA-256-Digest: 5y5yruA3U2vbz9+8h1k0/jfxXHQ/PdkQs3QZ4M6WEKs=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/UIEvent$EventC
+ haracteristic.class
+SHA-256-Digest: 5UvVWD6Mb7BdSg9LiTN35ff9EIofgeLPLHYEJjZHcy0=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/MacUnsafeCheck$1
+ .class
+SHA-256-Digest: 02QAMmPQfX2R0rxy8k4o8ZR3XCBzWGq5Q22eY4BT6f0=
+
+Name: META-INF/INDEX.LIST
+SHA-256-Digest: q8FFk/KCBrG2eTu69JIAIEJ2kD64Z0q6/oAzzQWImLM=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/LibraryUpdated.class
+SHA-256-Digest: 6cR/hr7A5xv8U1QZKZMl9pxDdBtbv/Eq9mJdslzt5DY=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/MoccaPinEntryReadyHandl
+ er.class
+SHA-256-Digest: 0/4l3DBXGp9wOpZfIvNF9KvSPKes5OZDpRHJfcbTo18=
+
+Name: eu/europa/ejusticeportal/dss/applet/DssApplet$1.class
+SHA-256-Digest: ToxRQJbv5NgaQphqr35M3e9XBF7JZp2UbWfMg+txdb8=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/SignDocumentHa
+ ndler.class
+SHA-256-Digest: A4p1ip33VSnUyWlsKAFmxQ0xXV/miYab+jmYe6uz39c=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/dialog/FileDialog.class
+SHA-256-Digest: +B/DLOrOSvCyrFsyT/DXZK4P8jJ61J/tTq/Od1sQFZk=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/PasswordInputFactory.
+ class
+SHA-256-Digest: YH6kpzy2r9XRhkyDlVr2u0A6l1uoD9OLMmQanV2/59Y=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/cb/GetMessagesCbH
+ andler.class
+SHA-256-Digest: Un5TrQzN4AL5XYeM2cXplN2/oWoNPzlkz3v83Pc3au8=
+
+Name: eu/europa/ejusticeportal/dss/applet/common/JavaScriptExpressionE
+ valuator.class
+SHA-256-Digest: 0AEwupx6VfPMaB4G2rws0hb1dxktjAPLs0wErq7H1k8=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/DigestAlgorithmR
+ anking.class
+SHA-256-Digest: g0u5IfDLgpY8qN1N0iVR/750fwQrezddcIJBavoF4ro=
+
+Name: eu/europa/ejusticeportal/dss/applet/server/JavaScriptAsynchronou
+ sCaller.class
+SHA-256-Digest: lkKC9CCLHy6daS+AMXW3a/nIBBDDD4nRpj+RRnOami0=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Text.class
+SHA-256-Digest: zBinDu+dK4Bul/HM+LuMqFZ3ipEWJi5HUUWvLkpbyPc=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/ComponentStat
+ e$1.class
+SHA-256-Digest: ptcglcILxTAWGd7MQ4btgeMJ8k2MRREPkFSGbWLyKOM=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/CertificateDispl
+ ayUtils$1.class
+SHA-256-Digest: fhJ0bUnQboG88cfGaWeiJKasuP8pkgpSqRcHoY7KDTE=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/NewMSCAPISignatu
+ reToken$CallbackPasswordProtection.class
+SHA-256-Digest: kIeNqfNI95RV/kP536dOjA/c5H8IymRFCCizC+JxUVY=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/NewMSCAPISignatu
+ reToken.class
+SHA-256-Digest: ajdvrw8KQdBISlhhhwq6PLlZi+VHRSTcdlkOaSbORHc=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/SigningMethodChanged.c
+ lass
+SHA-256-Digest: W2xVmKq9JFlW26hhqX1ZU1VQ4GSFk/mHpwaZ2QrPyzI=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/CertificateDispl
+ ayDetailsComparator.class
+SHA-256-Digest: zuu8e4+cXATCDhiEC9jXU5muEtJJsk6Zyq3r5k94XFo=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/check/MacUnsafeCheck$M
+ acNotUnsafeException.class
+SHA-256-Digest: EF7+zPsbdqpqo3uqWCmZIH6f68LPnPyYG+Nqr0YY9pU=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/RefreshSigning
+ ContextHandler.class
+SHA-256-Digest: A4clU6kARnZEibkrsvuwUFSGcH9xkTNba+jy9W8sIyg=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/SessionExpiredHandler.c
+ lass
+SHA-256-Digest: uTQI2QHnePPU0WKtvtdWjPxy7Z9c5xar399gtq8bBfU=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/action/LoadP12Action.c
+ lass
+SHA-256-Digest: Zzn4D0YrEHidxo1k3LaJpO+dlWoXMJVT+p3+/OOEbiw=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/AppletStopped.class
+SHA-256-Digest: pihVIt+yXcT6DlzOWPcI+5RGMSKHpLnJARjdni7vZTg=
+
+Name: eu/europa/ejusticeportal/dss/applet/controller/ui/filter/Refresh
+ BeforeSignFilter.class
+SHA-256-Digest: uSoxfRWLIfIdSAEPnymG9xnNlABhkb2/p7UYrUEV/SY=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/token/PKCS12DSSAction.
+ class
+SHA-256-Digest: VknL70bD0lZVadI4334bBA8iLaCQWQeQcPHyi/fbpBA=
+
+Name: eu/europa/ejusticeportal/dss/applet/model/CardDetector.class
+SHA-256-Digest: sYo91GJU2gTkv7xdZ30hLgsFTEuD8Vlh3SlCIgpWxug=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/component/Messages.clas
+ s
+SHA-256-Digest: ZyNSMbUyRRIPI39+d98OmccW0hnsDjbcZpn1S2xWIKU=
+
+Name: eu/europa/ejusticeportal/dss/applet/view/PdfSignedOkHandler.clas
+ s
+SHA-256-Digest: bD6plDSRhnLM+e+JQaUgQZCmN4xL492k6o9pFIRBQ/Q=
+
+Name: eu/europa/ejusticeportal/dss/applet/event/StatusRefreshed.class
+SHA-256-Digest: 8fcogcGylA8fwN50y/OUuiE5c85HS5oaGRwoiluCm7I=
+

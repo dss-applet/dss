@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>portal-signing-apps</artifactId>
+    <packaging>pom</packaging>
+    <name>apps</name>
+	<parent>
+	    <groupId>eu.europa.ejusticeportal.dss</groupId>
+    	<artifactId>digital-signature-applet</artifactId>
+    	<version>0.14.4</version>
+    	<relativePath>../digital-signature-applet</relativePath>
+	</parent>
+	<modules>
+        <module>dss-warsigning</module>
+        <module>signaturepage-demo</module>
+    </modules>
+</project>

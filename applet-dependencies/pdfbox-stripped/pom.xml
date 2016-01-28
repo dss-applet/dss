@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>pdfbox</artifactId>
+    <packaging>jar</packaging>
+    <name>PDFBox package stripped for Signature Applet</name>
+	<version>${pdfbox.version.applet}</version>
+    <parent>
+        <groupId>eu.europa.ejusticeportal.dss</groupId>
+        <artifactId>applet-dependencies</artifactId>
+        <version>0.14.4</version>
+    </parent>
+	<dependencies>
+        <dependency>
+        	<groupId>org.apache.pdfbox</groupId>
+        	<artifactId>pdfbox</artifactId>
+        </dependency>
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includes>org/apache/pdfbox/**/*</includes>
+                            <excludes>org/apache/pdfbox/resources/afm/**/*,org/apache/pdfbox/resources/cmap/**/*, org/apache/pdfbox/resources/ttf/**/*</excludes>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <index>false</index>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                        	<Permissions>all-permissions</Permissions>
+            			</manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>             
+
+        </plugins>
+    </build>
+</project>

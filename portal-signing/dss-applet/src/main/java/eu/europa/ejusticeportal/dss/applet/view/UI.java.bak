@@ -1,0 +1,750 @@
+/*******************************************************************************
+ * Digital Signature Applet
+ * 
+ *  Copyright (C) 2014 European Commission, Directorate-General for Justice (DG  JUSTICE), B-1049 Bruxelles/Brussel
+ * 
+ *  Developed by: ARHS Developments S.A. (rue Nicolas Bové 2B, L-1253 Luxembourg)  
+ * 
+ *  http://www.arhs-developments.com
+ * 
+ *  This file is part of the "Digital Signature Applet" project.
+ * 
+ *  Licensed under the EUPL, version 1.1 or – as soon they are approved by the European  Commission - subsequent versions of the EUPL (the "Licence"). 
+ *  You may not use this  work except in compliance with the Licence. You may obtain a copy of the Licence at:
+ * 
+ *  http://ec.europa.eu/idabc/eupl.html
+ * 
+ *  Unless required by applicable law or agreed to in writing, software distributed under   the Licence is distributed on  
+ *  an "AS IS" basis, WITHOUT WARRANTIES OR   CONDITIONS OF ANY KIND, either  express or implied. 
+ * 
+ *  See the Licence for the  specific language governing permissions and limitations under the Licence.
+ ******************************************************************************/
+package eu.europa.ejusticeportal.dss.applet.view;
+
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.IC_CS_;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.IC_SG_;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.IC____;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.P12_CS;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.P12_FP;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.P12_SG;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.P12___;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.SC_CS_;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.SC_SG_;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.SC____;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.SF____;
+import static eu.europa.ejusticeportal.dss.applet.view.UIState.SI____;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.NV;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.VD;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.VE;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.VI;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.UC;
+import static eu.europa.ejusticeportal.dss.applet.view.component.ComponentState.VW;
+
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+
+import eu.europa.ejusticeportal.dss.applet.common.UIControllerHome;
+import eu.europa.ejusticeportal.dss.applet.event.CardAdvice;
+import eu.europa.ejusticeportal.dss.applet.event_api.Event;
+import eu.europa.ejusticeportal.dss.applet.model.service.AppletInitSemaphore;
+import eu.europa.ejusticeportal.dss.applet.model.service.MessageBundleHome;
+import eu.europa.ejusticeportal.dss.applet.model.service.SigningContextHome;
+import eu.europa.ejusticeportal.dss.applet.model.service.SigningMethodHome;
+import eu.europa.ejusticeportal.dss.applet.view.component.Certificate;
+import eu.europa.ejusticeportal.dss.applet.view.component.Component;
+import eu.europa.ejusticeportal.dss.applet.view.component.ComponentState;
+import eu.europa.ejusticeportal.dss.applet.view.component.Message;
+import eu.europa.ejusticeportal.dss.applet.view.component.Messages;
+import eu.europa.ejusticeportal.dss.applet.view.component.Select;
+import eu.europa.ejusticeportal.dss.applet.view.component.Text;
+import eu.europa.ejusticeportal.dss.common.AppletSigningMethod;
+import eu.europa.ejusticeportal.dss.common.CertificateDisplayDetails;
+import eu.europa.ejusticeportal.dss.common.MessageLevel;
+import eu.europa.ejusticeportal.dss.common.MessagesEnum;
+import eu.europa.ejusticeportal.dss.common.OS;
+import eu.europa.ejusticeportal.dss.common.Utils;
+import eu.europa.ejusticeportal.dss.common.exception.DssLogger;
+import eu.europa.ejusticeportal.dss.common.exception.ExceptionUtils;
+import eu.europa.ejusticeportal.dss.common.exception.UnexpectedException;
+
+/**
+ * 
+ * Model of the user interface components state-managed by the applet.
+ * 
+ * <p>
+ * DISCLAIMER: Project owner DG-JUSTICE.
+ * </p>
+ * 
+ * @version $Revision: 367 $ - $Date: 2012-11-06 16:01:43 +0100 (Tue, 06 Nov 2012) $
+ * @author <a href="mailto:ejustice.project-dss@arhs-developments.com">ARHS Developments</a>
+ */
+public final class UI {
+
+    private static final DssLogger LOG = DssLogger.getLogger(UI.class.getSimpleName());
+    /**
+     * Section containing the form components
+     */
+    protected static final Component SECTION = new Component("sec_sign_pdf");
+
+    /**
+     * Button to sign a form.
+     */
+    protected static final Component BTN_SIGN = new Component("btn_sign");
+    /**
+     * Button to open the pdf
+     */
+    protected static final Component BTN_OPEN = new Component("btn_open");
+    /**
+     * Button to download the signed pdf
+     */
+    protected static final Component BTN_DL_SIGNED = new Component("file_download_signed");
+    /**
+     * Button to download the signed pdf
+     */
+    protected static final Component BTN_DL_UNSIGNED = new Component("file_download_unsigned");
+    /**
+     * Button to refresh the signing context
+     */
+    protected static final Component BTN_REFRESH = new Component("btn_refresh");
+    /**
+     * Returns to the previous page of the wizard
+     */
+    protected static final Component BTN_BACK = new Component("btn_back");
+    /**
+     * Advances to the next page of the wizard
+     */
+    protected static final Component BTN_NEXT = new Component("btn_next");
+    /**
+     * File chooser for locating a PKCS11 device driver
+     */
+    protected static final Text FILE_PKCS11 = new Text("file_pkcs11");
+    /**
+     * File chooser for locating a PKCS12 certificate store
+     */
+    protected static final Text FILE_PKCS12 = new Text("file_pkcs12");
+    /**
+     * File chooser for locating a signed PDF
+     */
+    protected static final Text FILE_UPLOAD = new Text("file_upload");
+    /**
+     * Text to display the status message of the applet
+     */
+    protected static final Messages MESSAGES = new Messages("messages");
+    /**
+     * Select to choose the certificate (recommended certificates)
+     */
+    protected static final Select CERTIFICATES_RECOMMENDED = new Select("sel_certificates_recommended");
+    /**
+     * Select to choose the other certificates
+     */
+    protected static final Select CERTIFICATES_OTHER = new Select("sel_certificates_other");
+    /**
+     * Text to display card info.
+     */
+    protected static final Component TXT_CARDINFO = new Component("txt_card_info");
+    /**
+     * Text to display information in the user survey.
+     */
+    protected static final Text TXT_USER_SURVEY = new Text("txt_sc_info");
+    /**
+     * Text to display information in the user survey.
+     */
+    protected static final Text TXT_ERROR_REPORT = new Text("txt_error_report");
+
+    /** Specific help text for windows */
+    protected static final Component TXT_MW_HELP_WINDOWS = new Component("txt_pkcs11_windows");
+
+    /** Text to show for redirection to a card issuer's website */
+    protected static final Component TXT_REDIRECT_ISSUER = new Component("txt_redirect_issuer");
+
+    /** Error text to show inside the PKCS11 file dialog */
+    protected static final Text PKCS11_ERROR = new Text("txt_pkcs11_error");
+
+    /** Advice when no card detected */
+    protected static final Component CARD_ADVICE_NO_CARD = new Component("smartcard_advice_no_card");
+    /** Advice when no certificates found (JRE6) */
+    protected static final Component CARD_ADVICE_JRE6 = new Component("smartcard_advice_java6");
+    /** Advice for JRE5 */
+    protected static final Component CARD_ADVICE_JRE5 = new Component("smartcard_advice_java5");
+    /** Advice for MSCAPI certificate store */
+    protected static final Component CARD_ADVICE_MSCAPI = new Component("smartcard_advice_mscapi");
+    /** Specific help for PKCS11 + JRE5 */
+    protected static final Component TXT_MW_HELP_PKCS11_JRE5 = new Component("smartcard_advice_pkcs11_jre5");
+    /** Specific help for PKCS11 + JRE6 + WINDOWS OS */
+    protected static final Component TXT_MW_HELP_PKCS11_JRE6 = new Component("smartcard_advice_pkcs11_jre6");
+    /** Component to display when there is only one recommended certificate */
+    protected static final Text CMP_ONE_RECOMMENDED = new Text("cmp_one_recommended");
+    /** Text to display when there is only one recommended certificate */
+    protected static final Text TXT_ONE_RECOMMENDED = new Text("cert_one_recommended");
+    /** Summary text to display when there is only one recommended certificate */
+    protected static final Text TXT_ONE_RECOMMENDED_SUMMARY = new Text("cert_one_recommended_summary");
+
+    /** Component to display when there are hidden certificates */
+    protected static final Component TXT_SHOW_HIDDEN_CERTIFICATES = new Component("show_hidden_certs");
+    /** Component to display the recommended certificates in a list */
+    protected static final Component CMP_RECOMMENDED_CERTIFICATES = new Component("recommended_certs");
+    /** Component to display the other certificates in a list */
+    protected static final Component CMP_OTHER_CERTIFICATES = new Component("other_certs");
+
+    /** Component to show that no certificates were found */
+    protected static final Component NO_CERTIFICATES = new Component("sel_certificates_no_certs");
+    /**
+     * The section containing the Sign components
+     */
+    protected static final Component SEC_SIGN = new Component("sec_sign");
+
+    /** Component to select a different signing method */
+    protected static final Component CMP_SIGN_METHOD = new Component("cmp_sign_method");
+
+    /** Component to select a different signing certificate */
+    protected static final Component CMP_OTHER_SIGN_CERT = new Component("cmp_other_sign_cert");
+
+    /** Holds the id of the selected certificate */
+    protected static final Text TXT_SELECTED_CERT_ID = new Text("sel_certificates_value");
+    /** Label when there are other certificates on the computer, and one or more recommended certificates */
+    protected static final Component CMP_OTHER_CERT_DESC = new Component("sel_certificates_other_desc");
+
+    /** Label when there are other certificates on the computer, and no recommended certificates */
+    protected static final Component CMP_OTHER_CERT_NO_REC_DESC = new Component(
+            "sel_certificates_other_no_recommend_desc");
+
+    /** Label when the user has to choose a certificate (i.e. there is more than one of them displayed) */
+    protected static final Component CMP_CHOOSE_CERT_DESC = new Component("choose_certificate_desc");
+
+    /**Label showing that the document was signed OK*/
+    protected static final Component CMP_PDF_SIGNED_OK = new Component("signed_ok");
+    /** All the components */
+    private static final List<Component> COMPONENTS = new ArrayList<Component>();
+
+    // GENERATED STATIC BLOCK
+    static {
+        COMPONENTS.add(BTN_BACK);// 1
+        COMPONENTS.add(BTN_NEXT);// 2
+        COMPONENTS.add(BTN_OPEN);// 3
+        COMPONENTS.add(BTN_REFRESH);// 4
+        COMPONENTS.add(BTN_SIGN);// 5
+        COMPONENTS.add(BTN_DL_SIGNED);// 6
+        COMPONENTS.add(BTN_DL_UNSIGNED);// 7
+        COMPONENTS.add(FILE_PKCS12);// 8
+        COMPONENTS.add(FILE_UPLOAD);// 9
+        COMPONENTS.add(MESSAGES);// 10
+        COMPONENTS.add(SECTION);// 11
+        COMPONENTS.add(CERTIFICATES_RECOMMENDED);// 12
+        COMPONENTS.add(TXT_CARDINFO);// 14
+        COMPONENTS.add(TXT_USER_SURVEY); // 15
+        COMPONENTS.add(TXT_ERROR_REPORT);// 16
+        COMPONENTS.add(SEC_SIGN);// 17
+        COMPONENTS.add(TXT_MW_HELP_WINDOWS);// 18
+        COMPONENTS.add(TXT_REDIRECT_ISSUER);// 19
+        COMPONENTS.add(PKCS11_ERROR);// 20
+        COMPONENTS.add(CARD_ADVICE_NO_CARD);// 21
+        COMPONENTS.add(CARD_ADVICE_JRE5);// 22
+        COMPONENTS.add(CARD_ADVICE_JRE6);// 23
+        COMPONENTS.add(TXT_MW_HELP_PKCS11_JRE5);// 24
+        COMPONENTS.add(TXT_MW_HELP_PKCS11_JRE6);// 25
+        COMPONENTS.add(NO_CERTIFICATES);// 26
+        COMPONENTS.add(CMP_SIGN_METHOD);// 27
+        COMPONENTS.add(CMP_OTHER_SIGN_CERT);// 28
+        COMPONENTS.add(CARD_ADVICE_MSCAPI);// 29
+        COMPONENTS.add(TXT_ONE_RECOMMENDED);// 30
+        COMPONENTS.add(TXT_SHOW_HIDDEN_CERTIFICATES);// 31
+        COMPONENTS.add(CMP_RECOMMENDED_CERTIFICATES);// 32
+        COMPONENTS.add(CMP_OTHER_CERTIFICATES);// 33
+        COMPONENTS.add(CMP_ONE_RECOMMENDED);// 34
+        COMPONENTS.add(CERTIFICATES_OTHER);// 35
+        COMPONENTS.add(TXT_SELECTED_CERT_ID);// 36
+        COMPONENTS.add(CMP_OTHER_CERT_DESC);// 37
+        COMPONENTS.add(CMP_OTHER_CERT_NO_REC_DESC);// 38
+        COMPONENTS.add(CMP_CHOOSE_CERT_DESC);// 39
+        COMPONENTS.add(TXT_ONE_RECOMMENDED_SUMMARY);// 40
+        COMPONENTS.add(CMP_PDF_SIGNED_OK);//41
+    }
+
+    // map of component states for each ui state - list of states is in order of COMPONENTS list
+    private static Map<UIState, List<ComponentState>> componentState = new HashMap<UIState, List<ComponentState>>();
+
+    // GENERATED STATIC BLOCK - components whose state is managed by state machine
+    static {
+                                              //01,02,03,04,05,06,07,08,09,10,11,12,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
+        componentState.put(SI____,Arrays.asList(VE,VD,VE,NV,NV,NV,NV,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));
+        componentState.put(SC____,Arrays.asList(VE,VD,VE,VW,NV,NV,NV,NV,NV,VE,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));
+        componentState.put(SC_CS_,Arrays.asList(VE,VD,VE,VW,VE,NV,NV,NV,NV,VE,VI,UC,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,NV));
+        componentState.put(SC_SG_,Arrays.asList(VE,VE,VE,NV,NV,VE,NV,NV,NV,VE,VI,NV,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,UC));
+        componentState.put(IC____,Arrays.asList(VE,VD,VE,NV,NV,NV,NV,NV,NV,VE,VI,UC,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,NV));
+        componentState.put(IC_CS_,Arrays.asList(VE,VD,VE,NV,VE,NV,NV,NV,NV,VE,VI,UC,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,UC,NV));
+        componentState.put(IC_SG_,Arrays.asList(VE,VE,VE,NV,NV,VE,NV,NV,NV,VE,VI,NV,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,UC));
+        componentState.put(P12___,Arrays.asList(VE,VD,VE,NV,NV,NV,NV,VE,NV,VE,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));
+        componentState.put(P12_FP,Arrays.asList(VE,VD,VE,NV,VD,NV,NV,VE,NV,VE,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));
+        componentState.put(P12_CS,Arrays.asList(VE,VD,VE,NV,VE,NV,NV,VE,NV,VE,VI,NV,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));
+        componentState.put(P12_SG,Arrays.asList(VE,VE,VE,NV,NV,VE,NV,NV,NV,VE,VI,NV,NV,NV,NV,VI,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,UC));
+        componentState.put(SF____,Arrays.asList(VE,VE,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV,NV));    
+    }
+
+    private UI() {
+        UI.unsetAll();
+    }
+
+    /**
+     * Gets the UI as a Json string
+     * 
+     * @return the ui as a json string
+     */
+    private static String toJson() {
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for (Component c : COMPONENTS) {
+            if (c.isChanged()) {
+                if (s.length() > 1) {
+                    s.append(",");
+                }
+                s.append("{").append(c.toJson()).append("}");
+            }
+        }
+        s.append("]");
+        resetAll();
+        return s.toString();
+    }
+
+    /**
+     * Reset all the UI component
+     */
+    private static void resetAll() {
+        for (Component c : COMPONENTS) {
+            c.reset();
+        }
+    }
+
+    /**
+     * Unset all the UI component
+     */
+    private static void unsetAll() {
+        for (Component c : COMPONENTS) {
+            c.unset();
+        }
+    }
+
+    /**
+     * Init the Ui according the state.
+     * 
+     * @param state the state
+     */
+    protected static void initUiFromState(UIState state) {
+        List<ComponentState> states = componentState.get(state);
+        if (states == null) {
+            ExceptionUtils.exception(new UnexpectedException("Seems that the given state is not implemented: '" + state
+                    + "'"), LOG);
+        } else if (states.size() != COMPONENTS.size()) {
+            ExceptionUtils.exception(new UnexpectedException("Seems that the given state is not fully implemented: '"
+                    + state + "'"), LOG);
+        } else {
+            for (int i = 0; i < COMPONENTS.size(); i++) {
+                if (UC.equals(states.get(i))) {
+                    continue;
+                } else if (VW.equals(states.get(i))) {
+                    if (SigningContextHome.getInstance().getSigningContext() != null
+                            && !OS.WINDOWS.equals(SigningContextHome.getInstance().getSigningContext().getOs())) {
+                        COMPONENTS.get(i).setState(VE);
+                    }
+                } else {
+                    COMPONENTS.get(i).setState(states.get(i));
+                }
+
+            }
+        }
+    }
+
+    /**
+     * Updates the status on the GUI.
+     * 
+     * @param titleKey a title for the messages
+     * @param level The level of the message
+     */
+    protected static void updateUiStatus(MessageLevel level, MessagesEnum titleKey) {
+        updateUiStatus(level, titleKey, null);
+    }
+
+    /**
+     * Updates the status on the GUI.
+     * 
+     * @param titleKey a title for the messages
+     * @param level The level of the message
+     */
+    protected static void updateUiStatus(MessageLevel level, MessagesEnum titleKey, Object... params) {
+        Message m = new Message();
+        m.setLevel(level);
+        m.setTitle(getMessageFromKey(titleKey, params));
+        UI.MESSAGES.addMessage(m);
+        updateUI();
+    }
+
+    /**
+     * Updates the status on the GUI.
+     * 
+     * @param titleKey a title for the messages
+     * @param messagesKey an array of keys for the messages to show. If a key does not contain the prefix
+     *            "dss_applet_message" specific of a message, the string key is shown instead.
+     * @param level The level of the message
+     */
+    protected static void updateUiStatus(MessageLevel level, MessagesEnum titleKey, MessagesEnum[] messagesKey) {
+        Message m = new Message();
+        m.setLevel(level);
+        m.setTitle(getMessageFromKey(titleKey));
+        if (messagesKey != null) {
+            populateMessages(m, messagesKey);
+        }
+        UI.MESSAGES.addMessage(m);
+        updateUI();
+    }
+
+    /**
+     * Clears the displayed messages
+     */
+    protected static void clearMessages() {
+        UI.MESSAGES.clear();
+        updateUI();
+    }
+
+    /**
+     * Populate the component messages with an array of keys.
+     * 
+     * @param message the messages
+     * @param strMessages the messages strings
+     */
+    private static void populateMessages(Message message, MessagesEnum... strMessages) {
+        Text t;
+        for (MessagesEnum m : strMessages) {
+            t = new Text();
+            t.setText(getMessageFromKey(m));
+            message.addDetail(t);
+        }
+    }
+
+    private static String getMessageFromKey(MessagesEnum key, Object... params) {
+        return Utils.escape(MessageFormat.format(MessageBundleHome.getInstance().getMessage(key.name()), params));
+    }
+
+    /**
+     * Update the UI according to the model.
+     */
+    protected static void updateUI() {
+        String s = UI.toJson();
+        // extra escaping needed for javascript parsing
+        s = s.replace("\\", "\\\\");
+        s = s.replace("'", "\\\\u0027");
+        UIControllerHome.getInstance().getUiController().eval(UIFunction.updateUI, new String[] { s });
+    }
+
+    /**
+     * Refresh the certificate combo-box with the specified list of String.
+     * 
+     * @param collection texts to display in the list
+     */
+    protected static void refreshCertificateChooser(Collection<CertificateDisplayDetails> collection) {
+        final Select selR = UI.CERTIFICATES_RECOMMENDED;
+        final Select selO = UI.CERTIFICATES_OTHER;
+        UIState.transition(SigningMethodHome.getInstance().getSigningMethod());
+        selR.removeAll();
+        selO.removeAll();
+
+        List<Certificate> recommended = new ArrayList<Certificate>();
+        List<Certificate> notRecommended = new ArrayList<Certificate>();
+        for (CertificateDisplayDetails cert : collection) {
+         
+            final Certificate newOption = new Certificate(cert.getCertificateHash(), "€ Tess of the d'Ubervilles",
+                    cert.isDateValid(), cert.getSummaryInfo(), cert.getIssuerDN(), cert.getIssuerCountry());
+            newOption.setEnabled(true);
+            if (!cert.isRecommended()) {
+                notRecommended.add(newOption);
+                newOption.setHide(true);
+            } else {
+                recommended.add(newOption);
+                newOption.setRecommended(true);
+                newOption.setHide(false);
+            }
+            LOG.log(Level.FINE, "Added a certificate to the certificates list");
+        }
+        if (recommended.size() == 1 || (recommended.size() == 0 && notRecommended.size() == 1)) {
+            UIState.transitionReadyToSign();
+            TXT_SELECTED_CERT_ID.setText(recommended.size() == 1 ? recommended.get(0).getId() : notRecommended.get(0).getId());
+            CMP_CHOOSE_CERT_DESC.setVisible(false);
+            updateUI();
+
+        }
+        for (Certificate t : recommended) {
+            selR.addOption(t);
+        }
+        for (Certificate t : notRecommended) {
+            selO.addOption(t);
+        }
+        if (recommended.size() == 1) {
+            TXT_ONE_RECOMMENDED.setText(recommended.get(0).getText());
+            TXT_ONE_RECOMMENDED_SUMMARY.setText(recommended.get(0).getSummaryInfo());
+            TXT_ONE_RECOMMENDED.setVisible(true);
+            TXT_ONE_RECOMMENDED_SUMMARY.setVisible(true);
+            CMP_ONE_RECOMMENDED.setVisible(true);
+            TXT_ONE_RECOMMENDED.setEnabled(true);
+            TXT_ONE_RECOMMENDED_SUMMARY.setEnabled(true);
+            CMP_ONE_RECOMMENDED.setEnabled(true);
+            TXT_SHOW_HIDDEN_CERTIFICATES.setVisible(notRecommended.size() != 0);
+            CMP_OTHER_CERT_DESC.setVisible(true);
+            CMP_OTHER_CERT_NO_REC_DESC.setVisible(false);
+            selR.getOptions().get(0).setSelected(true);
+            UIControllerHome.getInstance().getUiController().eval(UIFunction.certificateSelected,recommended.get(0).getId(), Boolean.toString(recommended.get(0).isDateValid()));
+        } else if (recommended.size() == 0) {
+            TXT_ONE_RECOMMENDED.setVisible(false);
+            TXT_ONE_RECOMMENDED_SUMMARY.setVisible(false);
+            CMP_RECOMMENDED_CERTIFICATES.setVisible(false);
+            CMP_RECOMMENDED_CERTIFICATES.setEnabled(false);
+            CERTIFICATES_RECOMMENDED.setVisible(false);
+            CMP_OTHER_CERTIFICATES.setVisible(notRecommended.size() != 0);
+            CERTIFICATES_OTHER.setVisible(notRecommended.size() != 0);
+            if (notRecommended.size() == 1) {
+                selO.getOptions().get(0).setSelected(true);
+            }
+            if (notRecommended.size()>1) {
+                CMP_CHOOSE_CERT_DESC.setVisible(true);
+            }
+            CMP_OTHER_CERT_DESC.setChanged(true);
+            CMP_OTHER_CERT_DESC.setVisible(false);
+            CMP_OTHER_CERT_NO_REC_DESC.setVisible(true);
+        } else if (recommended.size() > 1) {
+            CMP_RECOMMENDED_CERTIFICATES.setVisible(true);
+            CMP_RECOMMENDED_CERTIFICATES.setEnabled(true);
+            CERTIFICATES_RECOMMENDED.setVisible(true);
+            CERTIFICATES_RECOMMENDED.setEnabled(true);
+            TXT_SHOW_HIDDEN_CERTIFICATES.setVisible(notRecommended.size() != 0);
+            CMP_OTHER_CERT_DESC.setVisible(true);
+            CMP_OTHER_CERT_NO_REC_DESC.setChanged(true);
+            CMP_OTHER_CERT_NO_REC_DESC.setVisible(false);
+            CMP_CHOOSE_CERT_DESC.setVisible(true);
+        }
+        if (AppletSigningMethod.sc.equals(SigningMethodHome.getInstance().getSigningMethod())){
+            if (recommended.size() == 1 && notRecommended.size() == 0) {
+                UI.CARD_ADVICE_JRE6.setEnabled(true);
+                UI.CARD_ADVICE_JRE6.setVisible(true);
+            } else if (recommended.size() == 1 && notRecommended.size() > 0) {
+                UI.CARD_ADVICE_JRE6.setEnabled(false);
+                UI.CARD_ADVICE_JRE6.setVisible(false);
+            } else if (recommended.size() == 0) {
+                UI.CARD_ADVICE_JRE6.setEnabled(true);
+                UI.CARD_ADVICE_JRE6.setVisible(true);
+            }
+        }
+        NO_CERTIFICATES.setVisible(selR.getOptions().size() == 0 && selO.getOptions().size() == 0);
+        updateUI();
+        Event.getInstance().fire(new CardAdvice());
+
+    }
+
+    /**
+     * Set the UI in loading state/loaded state
+     * 
+     * @param visibility true if loading
+     * @param error true if the loading status in managed by an error
+     * @param message1 a message to show on the loading page; null if no message to show.
+     * @param message2 a second message to show on the loading page; null if no message to show.
+     */
+    protected static void setLoading(boolean visibility, boolean error, String message1, String message2) {
+        if (error || visibility || AppletInitSemaphore.getInstance().isReady()) {
+            UIControllerHome.getInstance().getUiController()
+                    .eval(UIFunction.setLoading, Boolean.toString(visibility), Utils.escape(message1), Utils.escape(message2));
+        }
+    }
+
+    /**
+     * Sets the PKCS11 library path in the user interface
+     * 
+     * @param libraryPath the path to set
+     */
+    protected static void setLibraryPath(String libraryPath) {
+        FILE_PKCS11.setText(libraryPath);
+        UIControllerHome.getInstance().getUiController().eval(UIFunction.closeMwDialog);
+    }
+
+    /**
+     * Sets the file path for the PKCS12 certificate store
+     * 
+     * @param filePath the path to set
+     */
+    protected static void setP12FilePath(String filePath) {
+        FILE_PKCS12.setText(filePath);
+
+    }
+
+    /**
+     * Sets the path of the uploaded file
+     * 
+     * @param filePath the path to set
+     */
+    protected static void setFileUploadedPath(String filePath) {
+        FILE_UPLOAD.setText(filePath);
+
+    }
+
+    /**
+     * Updates the text of the user survey
+     * 
+     * @param s the text
+     */
+    protected static void updateUserSurvey(String s) {
+        UI.TXT_USER_SURVEY.setText(s);
+        UI.TXT_USER_SURVEY.setVisible(true);
+    }
+
+    /**
+     * Updates the text of the user survey
+     * 
+     * @param s the stack trace
+     */
+    protected static void updateErrorReport(String s) {
+        UI.TXT_ERROR_REPORT.setText(s);
+        UI.TXT_ERROR_REPORT.setVisible(true);
+    }
+
+    /**
+     * Sets the advice shown to the user concerning smart cards
+     * 
+     * @param advice the main advice
+     * @param supplementary the supplementary advice
+     */
+    protected static void setCardAdvice(AppletSigningMethod sm, int cardCount, double jreVersion, OS os) {
+        switch (sm) {
+
+        case sc:
+            if (jreVersion < 1.6) {
+                UI.CARD_ADVICE_NO_CARD.setVisible(false);
+            } else if (cardCount == 0) {
+                UI.CARD_ADVICE_NO_CARD.setVisible(true);
+                UI.CARD_ADVICE_MSCAPI.setVisible(false);
+            } else {
+                UI.CARD_ADVICE_NO_CARD.setVisible(false);
+                UI.CARD_ADVICE_MSCAPI.setVisible(false);
+            }
+            break;
+        case installed_cert:
+            UI.CARD_ADVICE_MSCAPI
+                    .setVisible(cardCount > 0
+                            && ((UI.CERTIFICATES_RECOMMENDED.isVisible() && UI.CERTIFICATES_RECOMMENDED.getOptions()
+                                    .size() != 0)
+                            || (UI.CERTIFICATES_OTHER.isVisible() && UI.CERTIFICATES_OTHER.getOptions().size() != 0)));
+            break;
+        default:
+            UI.CARD_ADVICE_JRE5.setVisible(false);
+            UI.CARD_ADVICE_JRE6.setVisible(false);
+            UI.CARD_ADVICE_NO_CARD.setVisible(false);
+            UI.CARD_ADVICE_MSCAPI.setVisible(false);
+        }
+        UI.updateUI();
+    }
+
+    /**
+     * Show a middleware help dialog
+     * 
+     * @param dialogId the id of the dialog
+     * @param arg the argument
+     */
+    protected static void showMiddlewareHelp(String dialogId, String arg) {
+
+        TXT_MW_HELP_PKCS11_JRE5.setVisible(SigningContextHome.getInstance().getSigningContext().getJreVersion() < 1.6);
+        TXT_MW_HELP_PKCS11_JRE6.setVisible(SigningContextHome.getInstance().getSigningContext().getJreVersion() >= 1.6);
+        TXT_MW_HELP_WINDOWS.setVisible(OS.WINDOWS.equals(SigningContextHome.getInstance().getSigningContext().getOs())
+                && SigningContextHome.getInstance().getSigningContext().getJreVersion() >= 1.6);
+        TXT_REDIRECT_ISSUER.setVisible(SigningContextHome.getInstance().getCardProviderURL() != null);
+        UI.updateUI();
+        UIControllerHome.getInstance().getUiController().eval(UIFunction.showMiddlewareHelp, dialogId, arg);
+    }
+
+    /**
+     * Sets the error text for the PKCS11 library
+     * 
+     * @param level
+     * @param titleKey
+     * @param params
+     */
+    public static void updatePkcs11LibError(MessageLevel level, MessagesEnum titleKey, Object[] params) {
+        Message m = new Message();
+        m.setLevel(level);
+        m.setTitle(getMessageFromKey(titleKey, params));
+        UI.PKCS11_ERROR.setText(getMessageFromKey(titleKey, params));
+        UI.PKCS11_ERROR.setVisible(true);
+        updateUI();
+
+    }
+
+    /**
+     * Show some information for MOCCA pin pad entry - wrong PIN
+     */
+    public static void showMoccaPinPadWrongPin() {
+        UIControllerHome
+                .getInstance()
+                .getUiController()
+                .eval(UIFunction.showMoccaPinPadAdvice,
+                        getMessageFromKey(MessagesEnum.dss_applet_message_wrong_pin_mocca_pin_pad));
+    }
+
+    /**
+     * Show some information for MOCCA pin pad entry - the device is ready to use
+     */
+    public static void showMoccaPinPadReady() {
+        UIControllerHome
+                .getInstance()
+                .getUiController()
+                .eval(UIFunction.showMoccaPinPadAdvice,
+                        getMessageFromKey(MessagesEnum.dss_applet_message_why_password_mocca_pin_pad));
+    }
+
+    /**
+     * Transition to sign with another certificate
+     */
+    public static void signWithOtherCertificate(AppletSigningMethod sm, int cardCount, double jreVersion, OS os) {
+        UIState.transitionReadyToSign();
+        setCardAdvice(sm, cardCount, jreVersion, os);
+        UI.updateUI();
+    }
+
+    /**
+     * Closes the javascript password dialog should it be open
+     */
+    public static void closePasswordDialog() {
+        UIControllerHome.getInstance().getUiController().eval(UIFunction.closePasswordDialog);
+
+    }
+
+    /**
+     * Shows the other certificates
+     */
+    public static void showOtherCertificates() {
+        UI.CERTIFICATES_OTHER.setVisible(true);
+        UI.CERTIFICATES_OTHER.setEnabled(true);
+        UI.CMP_OTHER_CERTIFICATES.setVisible(true);
+        UI.CMP_OTHER_CERTIFICATES.setEnabled(true);
+        UI.CMP_ONE_RECOMMENDED.setVisible(false);
+        UI.TXT_ONE_RECOMMENDED.setVisible(false);
+        UI.TXT_ONE_RECOMMENDED_SUMMARY.setVisible(false);
+        UI.CERTIFICATES_RECOMMENDED.setVisible(true);
+        UI.CERTIFICATES_RECOMMENDED.setEnabled(true);
+        UI.CMP_RECOMMENDED_CERTIFICATES.setVisible(true);
+        UI.CMP_RECOMMENDED_CERTIFICATES.setEnabled(true);
+        UI.TXT_SHOW_HIDDEN_CERTIFICATES.setVisible(false);
+        UI.CARD_ADVICE_JRE6.setVisible(true);
+        UI.CARD_ADVICE_JRE6.setEnabled(true);
+        UI.CMP_CHOOSE_CERT_DESC.setVisible(true);
+        updateUI();
+
+    }
+
+    /**
+     * Update the ui to show that the PDF was signed
+     */
+    public static void pdfSignedOk() {
+        UI.CMP_PDF_SIGNED_OK.setVisible(true);
+        updateUI();
+    }
+
+}

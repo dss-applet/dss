@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>dss-common</artifactId>
+    <packaging>jar</packaging>
+    <name>DSS dss-common package stripped for Signature Applet</name>
+	<version>${dss.version.applet}</version>
+    <parent>
+        <groupId>eu.europa.ejusticeportal.dss</groupId>
+        <artifactId>applet-dependencies</artifactId>
+        <version>0.14.4</version>
+    </parent>
+	<dependencies>
+		<dependency>
+		    <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+		    <artifactId>dss-common</artifactId>
+            <version>${dss.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+		    		<artifactId>dss-spi</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includes>eu/europa/ec/markt/dss/**/*</includes>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <excludes>eu/europa/ec/markt/dss/validation102853/**/*,eu/europa/ec/markt/dss/DSSXMLUtils.class,</excludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <index>false</index>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                        	<Permissions>all-permissions</Permissions>
+            			</manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>             
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,154 @@
+/*
+Grey background for disabled input
+*/
+input[type="button"]:disabled, input[type="submit"]:disabled {
+    background:#999999
+}
+
+/*
+ Formatting of the messages: SUCCESS (green), INFO (blue), WARNING (orange), ERROR (red)
+*/
+.dss_applet_message_error, .dss_applet_message_warning, .dss_applet_message_info, .dss_applet_message_success {
+    border: 1px solid;
+    margin: 10px 20px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    border-radius: 4px;
+}
+
+.dss_applet_message_error h3, .dss_applet_message_warning h3, .dss_applet_message_info h3, .dss_applet_message_success h3 {
+	margin: 0px 0px;
+}
+.dss_applet_message_error ul, .dss_applet_message_warning ul, .dss_applet_message_info ul, .dss_applet_message_success ul{
+    margin-left: 20px;
+}
+
+.dss_applet_message_error {
+    background-color: #FFBABA;
+    background-image: url('images/error.png');
+}
+
+.dss_applet_message_warning {    
+    background-color: #FEEFB3;
+    background-image: url('images/warning.png');
+}
+
+.dss_applet_block .df_description_left {
+    margin-bottom: 3px !important;
+    margin-left:0;
+    font-size:1.2em;
+}
+
+.dss_applet_block h2 {
+    background-color: #FAFAFA; !important;
+    border-bottom: 1px solid #7192A8; !important;
+    color: #000000; !important;
+    font-family: "Trebuchet MS"; !important;
+    font-size: 1.75em; !important;
+    font-weight: normal; !important;
+    margin-bottom: 10px; !important;
+    margin-top: 10px; !important;
+    padding: 3px; !important;
+}
+.dss_applet_block input[file] {
+	width:220px;
+}
+.dss_applet_message_info {
+    background-color: #BDE5F8;
+    background-image: url('images/info.png');
+}
+
+.dss_applet_message_success {
+    background-color: #DFF2BF;
+    background-image:url('images/success.png');
+}
+
+.dss_applet_link {
+	color: #1690cc;
+	cursor: pointer;
+	
+}
+.dss_applet_link:hover {
+	text-decoration: underline;
+}
+
+.dss_applet_widget {
+	margin-right: 40px;
+	margin-top: 20px;
+}
+
+.dss_applet_inline_warning {
+	color: red;
+}
+/*
+Manage visual block
+*/
+div .dss_applet_block {
+    border-radius: 4px;
+    margin: 0px 20px 10px 20px;
+    text-shadow: 1px 0 1px #FFF;
+    background-color: #FFF;
+    box-shadow: none;
+}
+div .dss_applet_block li {
+	list-style: none;
+	font-size: small; 
+	font-weight: bold;
+}
+.dss_applet_ul_sm_mth {
+	font-size: small; 
+	font-weight: bold;
+}
+.dss_applet_ul_sm_desc {
+	font-size: small; 
+	font-weight: normal;
+}
+
+div .dss_applet_block ul {
+	text-align: justify;
+	width: 50%;
+} 
+/*
+Error report
+*/
+.dss_applet_error_report {
+	font-family: monospace;
+	border-color: gray;
+	max-height: 10em;
+	padding-left: 2em;
+	padding-right: 2em;
+	overflow-y: scroll;
+}
+/*
+The wrong PIN warning on the JavaScript PIN dialog
+*/
+#dss_applet_txt_wrong_pin {
+	color: red;
+}
+#dss_applet_txt_pkcs11_error {
+	color: red;
+}
+
+#dss_applet_sel_certificates_list {
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+.dss_applet_loading_message {
+	border-color: white;
+	border: 2px solid; 
+	border-radius:5px;
+	background-color: white;
+	opacity: 1;
+}
+.dss_applet_loading_message p {
+	color:rgb(119, 119, 119);
+	text-align:center;
+}
+.dss_applet_recsig {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.msg-box-list {
+	padding-left: 10em;
+}

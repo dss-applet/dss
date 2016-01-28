@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Class-Path: ej-portal-dss-common-0.13.1.jar ej-portal-dss-mscapi-0.13.
+ 1.jar ej-portal-dss-mscapi-crt-0.13.1.jar dss-document-4.0.4-stripped
+ .jar dss-spi-4.0.4-stripped.jar dss-common-4.0.4-stripped.jar apache-
+ commons-2.6-stripped.jar pdfbox-1.8.3-stripped.jar slf4j-1.6.4-stripp
+ ed.jar xmlsec-1.5.6-stripped.jar bcprov-jdk15on-1.49-signed.jar bcmai
+ l-jdk15on-1.49-signed.jar bcpkix-jdk15on-1.49-signed.jar
+Build-Jdk: 1.7.0_45
+Built-By: MacFarPe
+Permissions: all-permissions
+Created-By: Apache Maven 3.1.0
+Caller-Allowable-Codebase: eapptest02 ark.athens.intrasoft-intl.privat
+ e e-justice-test.intrasoft-intl.com e-justice.stress.europa.eu e-just
+ ice.test.europa.eu e-justice-forms.intrasoft-intl.com 158.167.240.176
+  158.167.242.35 calluna.cc.cec.eu.int zaraza.cc.cec.eu.int hesperis.c
+ c.cec.eu.int odontites.cc.cec.eu.int saponaria.cc.cec.eu.int aster.cc
+ .cec.eu.int ajuga.cc.cec.eu.int adonis.cc.cec.eu.int agrest.cc.cec.eu
+ .int
+Archiver-Version: Plexus Archiver
+Codebase: eapptest02 ark.athens.intrasoft-intl.private e-justice-test.
+ intrasoft-intl.com e-justice.stress.europa.eu e-justice.test.europa.e
+ u e-justice-forms.intrasoft-intl.com 158.167.240.176 158.167.242.35 c
+ alluna.cc.cec.eu.int zaraza.cc.cec.eu.int hesperis.cc.cec.eu.int odon
+ tites.cc.cec.eu.int saponaria.cc.cec.eu.int aster.cc.cec.eu.int ajuga
+ .cc.cec.eu.int adonis.cc.cec.eu.int agrest.cc.cec.eu.int
+

@@ -1,0 +1,132 @@
+<configuration debug="true">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level	%-25.25lo{0} [%X{user}] %msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DSS_FILE_SIGN"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_stats_sign.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_stats_sign.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DSS_FILE_REPO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_stats_repo.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_stats_repo.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DSS_FILE_NEW"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_stats_new.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_stats_new.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DSS_FILE_APPLET"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_stats_applet.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_stats_applet.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>	
+
+	<appender name="DSS_FILE_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_stats_error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_stats_error.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DSS_EXTERNAL_ACCESS"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${catalina.base}/logs/applet/dss_external_access.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>${catalina.base}/logs/applet/dss_external_access.%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>5</maxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>80MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="eu.europa.ejusticeportal.dss.controller.statistics.sign" level="info" additivity="false">
+	  <appender-ref ref="DSS_FILE_SIGN" />
+	</logger>
+	<logger name="eu.europa.ejusticeportal.dss.controller.statistics.repo" level="info" additivity="false">
+	  <appender-ref ref="DSS_FILE_REPO" />
+	</logger>
+	<logger name="eu.europa.ejusticeportal.dss.controller.statistics.newprofile" level="info" additivity="false">
+	  <appender-ref ref="DSS_FILE_NEW" />
+	</logger>
+	<logger name="eu.europa.ejusticeportal.dss.controller.statistics.error" level="info" additivity="false">
+	  <appender-ref ref="DSS_FILE_ERROR" />
+	</logger>
+	<logger name="eu.europa.ejusticeportal.dss.controller.statistics.applet" level="info" additivity="false">
+	  <appender-ref ref="DSS_FILE_APPLET" />
+	</logger>
+	<logger name="eu.europa.ejusticeportal.dss.controller.CommonsHttpLoaderFactory.external" level="info" additivity="false">
+	  <appender-ref ref="DSS_EXTERNAL_ACCESS" />
+	</logger>
+
+	<root level="debug">	    
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>

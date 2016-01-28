@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ej-portal-dss-applet-6</artifactId>
+    <packaging>jar</packaging>
+    <name>eJustice Portal signing applet (Java 6)</name>
+    <parent>
+        <groupId>eu.europa.ejusticeportal.dss</groupId>
+        <artifactId>portal-signing</artifactId>
+        <version>0.14.4</version>
+    </parent>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <index>true</index>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                        	<Permissions>all-permissions</Permissions>                			
+                			<Codebase>${targetcodebase}</Codebase>
+                			<Caller-Allowable-Codebase>${targetcodebase}</Caller-Allowable-Codebase>
+            			</manifestEntries>                   
+            		</archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>eu.europa.ejusticeportal.dss</groupId>
+            <artifactId>ej-portal-dss-applet</artifactId>
+        </dependency>
+         <!--Bouncycastle stripped dependencies-->
+<!--          <dependency>
+            <groupId>${dss.groupId.applet}</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bouncycastle.version.applet}</version>
+        </dependency>
+         <dependency>
+            <groupId>${dss.groupId.applet}</groupId>
+            <artifactId>bcmail-jdk15on</artifactId>
+            <version>${bouncycastle.version.applet}</version>
+        </dependency>        
+        <dependency>
+            <groupId>${dss.groupId.applet}</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>${bouncycastle.version.applet}</version>
+        </dependency> -->
+<!-- 		<dependency>
+			<groupId>io.github.jnasmartcardio</groupId>
+			<artifactId>jnasmartcardio</artifactId>
+			<version>0.2.0</version>
+		</dependency>     -->    
+    </dependencies>
+</project>
+
+

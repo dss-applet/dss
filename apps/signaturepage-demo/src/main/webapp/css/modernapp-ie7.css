@@ -1,0 +1,39 @@
+.banner nav li{
+	display:inline;
+}
+.banner nav li a, .banner nav li span{
+	display:inline;
+	padding:0.2em 0.2em;
+}
+a.switch-menu{
+	color:#FFF;
+}
+
+
+
+/* --- Tabs ---- */
+.tabs ul li{
+	display:inline;
+}
+
+.fluid-row .fluid-column{
+	margin-left:1.8%;	
+}
+
+/* Boxes */ 
+.msg-box{
+	background-position:20px center !important;
+	background-repeat:no-repeat !important;
+}
+.msg-box.yellow-box{
+    background-image:url(../images/ie7/warning.png);
+}
+.msg-box.blue-box{
+    background-image:url(../images/ie7/info.png);
+}
+.msg-box.red-box{
+    background-image:url(../images/ie7/cancel-circle.png);
+}
+.msg-box.green-box{
+    background-image:url(../images/ie7/checkmark-circle.png);
+}

@@ -1,0 +1,87 @@
+<%@ tag body-content="scriptless" pageEncoding="UTF-8"%><%--
+--%><%@ taglib prefix="app" tagdir="/WEB-INF/tags/bean"%><%--
+--%><%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %><%--
+--%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%><%--
+--%><%@ attribute name="id" required="false"%><%--
+--%><%@ attribute name="cssClass" required="false"%><%--
+--%><%@ attribute name="cssStyle" required="false"%><%--
+--%><%@ attribute name="action" required="false"%><%--
+--%><%@ attribute name="href" required="false"%><%--
+--%><%@ attribute name="linkText" required="true"%><%--
+--%><%@ attribute name="tooltip" required="false"%><%--
+--%><%@ attribute name="titleDialog" required="false"%><%--
+--%><%@ attribute name="i18n" required="false"%><%--
+--%><%@ attribute name="disabled" required="false"%><%--
+--%><%@ attribute name="onclick" required="false"%><%--
+--%><%@ attribute name="accesskey" required="false"%><%--
+--%><%@ attribute name="ext" required="false" type="java.lang.Boolean"%><%--
+--%><%@ attribute name="target" required="false"%><%--
+--%><%@ attribute name="styleClass" required="false"%><%--
+--%><%@ attribute name="doJspBody" required="false" type="java.lang.Boolean"%><%--
+--%><%@ attribute name="embeddedLink" required="false" type="java.lang.Boolean" description="Set to true when the text to link is enclosed in [] within the title."%><%--
+--%><c:set var="newLink" value="${fn:startsWith(href, '/') ? '' : '/'}${href}"/><%--
+--%><c:set var="embeddedLink" value="true"/><%--
+--%><c:set var="href"><%--
+	--%><c:choose><%--
+		--%><c:when test="${not empty ext and ext}"><c:out value="${linkText}"/></c:when><%--
+		--%><c:when test="${not empty href}"><c:out value="${href }"/></c:when><%--
+		--%><c:when test="${not empty action}"><c:url value="${action }"/></c:when><%--
+		--%><c:when test="${empty linkText}"><c:out value="#"/></c:when><%--
+		--%><c:otherwise><c:url value="${newLink}"/></c:otherwise><%--
+	--%></c:choose><%--
+--%></c:set><%--
+--%><c:set var="titleHref"><%--
+	--%><c:if test="${not empty linkText}"><%--
+		--%><c:choose><%--
+			--%><c:when test="${not empty i18n and i18n}"><app:message key="${linkText}"/></c:when><%--
+			--%><c:otherwise><app:message key="${linkText}"/></c:otherwise><%--
+		--%></c:choose><%--
+	--%></c:if><%--
+--%></c:set><%--	
+--%><c:set var="tooltipMessage"><%--
+	--%><c:choose><%--
+		--%><c:when test="${not empty tooltip}"><%--
+			--%><c:choose><%--
+				--%><c:when test="${not empty i18n and i18n}"><app:message key="${tooltip}"/></c:when><%--
+				--%><c:otherwise><app:message key="${tooltip}"/></c:otherwise><%--
+			--%></c:choose></c:when><%--
+		--%><c:otherwise><c:out value="${titleHref}"/></c:otherwise><%--
+	--%></c:choose><%--
+--%></c:set><%--
+--%><c:set var="titleDialogHref"><%--
+	--%><c:if test="${not empty titleDialog}"><%--
+		--%><c:choose><%--
+			--%><c:when test="${not empty i18n and i18n}"><app:message key="${titleDialog}"/></c:when><%--
+			--%><c:otherwise><c:out value="${titleDialog}"/></c:otherwise><%--
+		--%></c:choose><%--
+	--%></c:if><%--
+--%></c:set><%--
+--%><c:choose><%--
+--%><c:when test="${embeddedLink and fn:contains(titleHref, '[') and fn:contains(titleHref, ']')}"><%--
+	--%><c:set var = "prelink" value = "${fn:substringBefore(titleHref,'[') }"/><%--
+	--%><c:set var = "postlink" value = "${fn:substringAfter(titleHref,']') }"/><%--
+	--%><c:set var = "lpostlink" value = "${fn:length(postlink) }"/><%--
+	--%><c:set var = "lprelink" value = "${fn:length(prelink) }"/><%--
+	--%><c:set var = "llink" value = "${fn:length(titleHref) }"/><%--
+	--%><c:set var = "titleHref" value = "${fn:substring(titleHref,lprelink+1,llink-lpostlink-1) }"/><%--
+--%></c:when><%--
+--%><c:otherwise><%--
+	--%><c:set var = "prelink" value = ""/><%--
+	--%><c:set var = "postlink" value = ""/><%--
+--%></c:otherwise><%--
+--%></c:choose><%--
+--%><c:choose><%--
+	--%><c:when test="${not empty disabled and disabled}"><%--
+	--%><c:choose><%--
+			--%><c:when test="${doJspBody}"><jsp:doBody/></c:when><%--
+			--%><c:when test="${empty titleHref}"><c:out value="(...)"/></c:when><%--
+			--%><c:otherwise><span class="${styleClass}"><c:out value="${titleHref}"/></span></c:otherwise><%--
+		--%></c:choose><%--
+	--%></c:when><%--
+	--%><c:otherwise><c:out value="${prelink}"/><a accesskey="${accesskey}" onclick="${onclick}" href="${href}" target="${target}" title="${tooltipMessage}" titledialog="${titleDialogHref}" id="${id}" class="${cssClass}" style="${cssStyle}"><%--
+		--%><c:choose><%--
+			--%><c:when test="${doJspBody}"><jsp:doBody/></c:when><%--
+			--%><c:when test="${empty titleHref}"><c:out value="(...)"/></c:when><%--
+			--%><c:otherwise><c:out value="${titleHref}"/></c:otherwise><%--
+		--%></c:choose></a><c:out value="${postlink}"/></c:otherwise><%--
+--%></c:choose>

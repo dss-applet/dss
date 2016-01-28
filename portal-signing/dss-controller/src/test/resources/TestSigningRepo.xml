@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The cards explicitly supported by the signing service -->
+<SigningConfig xmlns:dss="eu:europa:ejusticeportal:dynforms:signing:profile:v1"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xmlns="eu:europa:ejusticeportal:dynforms:signing:profile:v1">
+<SigningContextRepository>
+    <CardProfiles>
+        <CardProfile>
+            <ATR>3B 7D 94 00 00 80 31 80 65 B0 83 02 04 7E 83 00 90 00</ATR>
+            <Description>[Luxembourg] LuxTrust</Description>
+            <URL>https://www.luxtrust.lu/fr/simple/189</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.so</libraryPath>
+                <libraryPath>/usr/lib/pkcs11/libgclib.so</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/*gclib.dylib</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7D 94 00 00 80 31 80 65 B0 83 11 00 C8 83 00 90 00</ATR>
+            <!--This is the new LuxTrust card-->
+            <Description>[Luxembourg] LuxTrust (new version)</Description>
+            <URL>https://www.luxtrust.lu/fr/simple/189</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <!-- <libraryPath>/usr/lib/ClassicClient/libgclib.so</libraryPath>-->
+                <libraryPath>/usr/lib/pkcs11/libgclib.so</libraryPath>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.dylib</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 6D 00 00 80 31 80 65 B0 83 02 04 7E 83 00 90 00</ATR>
+            <Description>[Luxemburg] Luxtrust (MAC)</Description>
+            <URL>https://www.luxtrust.lu/fr/simple/189</URL>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/*gclib.dylib</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7D 95 00 00 80 31 80 65 B0 83 02 04 7E 83 00 90 00</ATR>
+            <Description>[Portugal] Minsterio da Justica</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.so</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/*gclib.dylib</libraryPath>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BD 18 00 81 31 FE 45 80 51 02 00 00 00 00 00 00 00 00 00 00 00</ATR>
+            <Description>[Austria] e-card</Description>
+            <URL>http://www.sozialversicherung.at</URL>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B DD 96 FF 81 B1 FE 45 1F 03 80 31 B0 52 02 03 64 04 1B B4 22 81 05 18</ATR>
+            <Description>[Austria] e-card G3 (State Health Insurance Card)</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BF 11 00 81 31 FE 45 45 50 41 00 00 00 00 00 00 00 00 00 00 00 00 00</ATR>
+            <Description>[Austria] A-Sign Premium (EPA)</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BF 11 00 81 31 FE 45 4D 43 41 00 00 00 00 00 00 00 00 00 00 00 00 00</ATR>
+            <Description>[Austria] A-Sign Premium (MCA)</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 98 94 40 FF A5 03 01 01 01 AD 13 10</ATR>
+            <Description>[Belgium] e-Id (BELPIC 2)</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 98 94 40 0A A5 03 01 01 01 AD 13 10</ATR>
+            <Description>[Belgium] e-Id (BELPIC 3)</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 98 95 40 0A A5 07 01 01 01 AD 13 20</ATR>
+            <Description>[Belgium] e-Id (BELPIC 4)</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7F 38 00 00 00 6A 44 4E 49 65 00 02 4C 34 01 13 00 90 00</ATR>
+            <Description>[Estonia] Dni</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7B 94 00 00 80 62 00 51 56 46 69 6E 45 49 44</ATR>
+            <Description>[Finland] E-ID Card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7D 94 00 00 80 31 80 65 B0 83 11 C0 A9 83 00 90 00</ATR>
+            <Description>[Lithuania] E-ID Card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 9F 90 80 1F C0 00 68 00 00 05 00 46 49 53 45 31 C8 00 00 00 00</ATR>
+            <Description>[Sweden] E-ID Card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 68 00 00 00 73 C8 40 10 00 90 00</ATR>
+            <Description>[Iceland] VISA Electron Card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 6F 00 00 80 31 E0 6B 04 20 05 02 58 55 55 55 55 55 55</ATR>
+            <Description>[Iceland] Maestro Card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FF 18 00 FF 81 31 FE 55 00 6B 02 09</ATR>
+            <Description>[Italia] Card (1)</Description>
+            <APIContext>
+
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FF 18 00 FF C1 0A 31 FE 55 00 6B 05 08 C8 05 01 01 01 43 4E 53 10 31 80 1C</ATR>
+            <Description>[Italia] Carta Regionale dei Servizi Regione Lombardia</Description>
+            <URL>http://www.crs.regione.lombardia.it</URL>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+
+                <DigestAlgorithm>SHA1</DigestAlgorithm>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/libbit4ipki.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/Applications/STMicroelectronics/SafeDive/libSafeDiveP11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+
+            <DigestAlgorithm>SHA256</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B DF 18 00 81 31 FE 7D 00 6B 15 0C 01 81 01 01 01 43 4E 53 10 31 80 F8</ATR>
+            <Description>[Italia] Carta Regionale dei Servizi Regione Lombardia (2)</Description>
+            <URL>http://www.crs.regione.lombardia.it</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/libASEP11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libASEP11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA256</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 00 00 FF 45 73 74 45 49 44 20 76 65 72 20 31 2E 30</ATR>
+            <Description>[Estonia] eId Card (1)</Description>
+            <URL>https://installer.id.ee/</URL>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B DE 18 FF C0 80 B1 FE 45 1F 03 45 73 74 45 49 44 20 76 65 72 20 31 2E 30 2B</ATR>
+            <Description>[Estonia] eId Card (2)</Description>
+            <URL>https://installer.id.ee/</URL>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FE 94 00 FF 80 B1 FA 45 1F 03 45 73 74 45 49 44 20 76 65 72 20 31 2E 30 43</ATR>
+            <Description>[Estonia] eId Card (3)</Description>
+            <URL>https://installer.id.ee/</URL>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FE 18 00 00 80 31 FE 45 45 73 74 45 49 44 20 76 65 72 20 31 2E 30 A8</ATR>
+            <Description>[Estonia] eId Card (4)</Description>
+            <URL>https://installer.id.ee/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/onepin-opensc-pkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+                <DigestAlgorithm>SHA1</DigestAlgorithm>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/Applications/qdigidocclient.app/Contents/MacOS/libopensc.3.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+      </CardProfile>
+        <CardProfile>
+            <ATR>3B FE 18 00 00 80 31 FE 45 80 31 80 66 40 90 A4 16 2A 00 83 0F 90 00 EF</ATR>
+            <Description>[Estonia] eId Card (4)(MacOS or Linux)</Description>
+            <URL>https://installer.id.ee/</URL>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/Library/OpenSC/lib/onepin-opensc-pkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/onepin-opensc-pkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+
+        <CardProfile>
+            <ATR>3B 7D 95 00 00 80 31 80 65 B0 83 11 C0 A9 83 00 90 00</ATR>
+            <Description>[Portugal] eId Card</Description>
+            <URL>http://www.cartaodecidadao.pt/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libpteidpkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/pteidpkcs11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FA 18 00 02 C1 0A 31 FE 58 4B 53 77 69 73 73 53 69 67 6E 89</ATR>
+            <Description>[Switzerland] Card (SwissSign)</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B F2 18 00 02 C1 0A 31 FE 58 C8 08 74</ATR>
+            <Description>[Switzerland] Card (QuoVadis)</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libcardos11.so</libraryPath>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libcardos11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BB 18 00 C0 10 31 FE 45 80 67 04 12 B0 03 03 00 00 81 05 3C</ATR>
+            <Description>[Finland] Post card</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7D 96 00 00 80 31 80 65 B0 83 11 00 C8 83 00 90 00</ATR>
+            <Description>[Spain] Izenpe card</Description>
+            <URL>http://www.izenpe.com</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <!-- <libraryPath>/usr/lib/ClassicClient/libgclib.so</libraryPath>-->
+                <libraryPath>/usr/lib/pkcs11/libgclib.so</libraryPath>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.dylib</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7F 38 00 00 00 6A 43 45 52 45 53 02 2C 34 03 80 03 90 00</ATR>
+            <Description>[Spain] FNMT</Description>
+            <URL>http://www.cert.fnmt.es/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ceresopensc-pkcs11.so</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.ReloadAppletSigningContextFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/Library/OpenSCFnmt/lib/fnmtopensc-pkcs11.so</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FF 18 00 FF C1 0A 31 FE 55 00 6B 05 08 C8 05 01 02 0A 48 50 43 00 31 80 01</ATR>
+            <Description>[Italia] SISS</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libcardos11.so</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libcardos11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7F 18 00 00 00 31 B8 64 50 23 EC C1 73 94 01 80 82 90 00</ATR>
+            <Description>[France] eID</Description>
+            <URL>http://www.ants.interieur.gouv.fr/ias/IAS.html/</URL>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <libraryPath>c:/Windows/System32/p11siglib.dll</libraryPath>
+                <libraryPath>c:/tmp/p11siglib.dll</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/*gclib.dylib</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.so</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshTwiceSigningContextFilter
+                </EventFilter>
+                <EventFilter>eu.europa.ejusticeportal.dss.applet.controller.ui.filter.RefreshBeforeSignFilter
+                </EventFilter>
+                <!-- <libraryPath>/usr/lib/pkcs11/libgclib.so</libraryPath> -->
+            </APIContext>
+
+            <DigestAlgorithm>SHA256</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 98 13 40 0A A5 03 01 01 01 AD 13 11</ATR>
+            <Description>[Belgium] e-Id</Description>
+            <URL>http://eid.belgium.be</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libbeidpkcs11.dylib</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/libbeidpkcs11.so</libraryPath>
+            </APIContext>
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+
+        <!-- Added during UAT testing -->
+        <CardProfile>
+            <ATR>3B D5 18 00 81 31 3A 7D 80 73 C8 21 10 30</ATR>
+            <Description>[Greece] card (DUAT)</Description>
+            <URL>http://www.aladdin.com/etoken/devices/default.aspx</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BF 11 00 81 31 FE 45 45 50 41 00 00 00 00 00 00 00 00 00 00 00 00 F1</ATR>
+            <Description>[Austria] ACOS 02, ACOS 01</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B BD 18 00 81 31 FE 45 80 51 02 67 04 14 B1 01 01 02 00 81 05 3D</ATR>
+            <Description>[Austria] e-Card G2</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7F 38 00 00 00 6A 44 4E 49 65 [1,2]0 02 4C 34 01 13 03 90 00</ATR>
+            <Description>[Spain] DNI electronico (Spanish electronic ID card)</Description>
+            <URL>http://www.dnielectronico.es/descargas/index.html</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA256</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 7D 95 00 00 80 31 80 65 B0 83 11 00 C8 83 00 90 00</ATR>
+            <Description>[Portugual] eID Card</Description>
+            <URL>http://www.cartaodecidadao.pt/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libpteidpkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/pteidpkcs11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA256</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B 9F 96 81 B1 FE 45 1F 07 00 64 05 1E B2 00 31 B0 73 96 21 DB 05 90 00 5C</ATR>
+            <Description>[Germany] Deutscher Sparkassenverlag; Signtrust Card Deutsche Post</Description>
+            <URL>https://www.s-trust.de/produkte/strust_einzelsignaturkarte/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+
+        <CardProfile>
+            <ATR>3B D5 18 00 81 31 FE 7D 80 73 C8 21 10 F4</ATR>
+            <Description>[Romania] Alladin e-token (Digisign) or [Netherlands]</Description>
+            <URL>www.digisign.ro</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B DA 96 FF 81 B1 FE 45 1F C3 54 69 63 54 6F 6B 20 31 2E 31 E4</ATR>
+            <Description>[Netherlands] QuoVadis Orde van Advocaten</Description>
+            <URL>www.digisign.ro</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/local/lib/libASEP11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        
+	<!-- Added in scope of QTM4 -->
+	 <CardProfile>
+            <ATR>3B FA 96 00 00 81 31 80 43 80 65 A2 01 01 01 3D 72 D6 43 83</ATR>
+            <Description>[Malta] Gemalto</Description>
+            <URL>https://www.google.com/</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/pkcs11/libgclib.so</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>          
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <libraryPath>/usr/lib/ClassicClient/libgclib.dylib</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>                                                
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        
+       
+        <CardProfile>
+            <ATR>3B BD 18 00 81 31 FE 45 80 51 02 67 05 18 B1 02 02 02 01 81 05 31</ATR>
+            <Description>[Austria] e-Card G2 Ref</Description>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <APIContext>
+                <API>MOCCA</API>
+                <OS>macos</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        
+        <CardProfile>
+            <ATR>3B FF 18 00 FF 81 31 FE 55 00 6B 02 09 03 03 01 01 01 43 4E 53 10 31 80 9D</ATR>
+            <Description>[Italy] Banca d'italia / Aruba PEC</Description>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FF 18 00 FF 81 31 FE 55 00 6B 02 09 03 03 01 11 01 43 4E 53 11 31 80 8C</ATR>
+            <Description>[Italy] InfoCert</Description>
+            <URL>http://www.infocert.it</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA512</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B F9 98 00 FF C1 10 31 FE 55 50 43 20 43 4D 44 31 31 30 9C</ATR>
+            <Description>[Italy] Misterio della difesa </Description>            
+            <APIContext>
+                <API>PKCS11</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <libraryPath>c:/Windows/SysWOW64/AtosSCAPIPKCS11.dll</libraryPath>
+                <libraryPath>c:/Windows/System32/AtosSCAPIPKCS11.dll</libraryPath>
+                <minJreVersion>1.5</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>                        
+        <CardProfile>
+            <ATR>3B DD 18 00 81 31 FE 45 90 4C 41 54 56 49 41 2D 65 49 44 90 00 8C</ATR>
+            <Description>[Latvia] National identity card</Description>
+            <URL>http://www.pmlp.gov.lv/lv/sakums/pakalpojumi/personu-apliecinosi-dokumenti/personas-apliecibas/datora-sagatvosana-eid.html</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+<!--             <APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+		  		This is the path, but it has not been tested successfully
+                <libraryPath>/usr/lib/otlv-pkcs11.dylib</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+			<APIContext>
+                <API>PKCS11</API>
+                <OS>linux</OS>
+                <arch>either</arch>
+		  		This is the path, but it has not been tested successfully
+                <libraryPath>/usr/lib/otlv-pkcs11.so</libraryPath>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>  -->           
+                        
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B F8 18 00 00 80 31 FE 45 00 73 C8 40 13 00 90 00 92</ATR>
+            <Description>[Greece] Ermis</Description>
+            <URL>http://www.ermis.gov.gr</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>
+        <CardProfile>
+            <ATR>3B FD 94 00 FF 81 31 FE 45 80 73 00 21 13 57 4A 54 48 61 31 4A 00 47</ATR>
+            <Description>[Greece] Starkey 400 USB Token</Description>
+            <URL>http://www.ermis.gov.gr</URL>
+            <APIContext>
+                <API>NEWMSCAPI</API>
+                <OS>windows</OS>
+                <arch>either</arch>
+                <minJreVersion>1.6</minJreVersion>
+            </APIContext>
+            <DigestAlgorithm>SHA1</DigestAlgorithm>
+        </CardProfile>      
+    </CardProfiles>
+        
+        
+    <Defaults>
+        <Strategy>LIST</Strategy>
+        <DigestAlgorithm>SHA512</DigestAlgorithm>
+        <DigestAlgorithm>SHA256</DigestAlgorithm>
+        <DigestAlgorithm>SHA1</DigestAlgorithm>
+    </Defaults>
+    <!--
+            <Defaults>
+                 <Strategy>RANDOM</Strategy>
+                <MaxTries>4</MaxTries>
+                <DefaultDigAlgorithm>SHA1</DefaultDigAlgorithm>
+                  <DigestAlgorithm>MD2</DigestAlgorithm>
+                  <DigestAlgorithm>MD5</DigestAlgorithm>
+                  <DigestAlgorithm>SHA512</DigestAlgorithm>
+                  <DigestAlgorithm>SHA256</DigestAlgorithm>
+            </Defaults>
+             -->
+
+</SigningContextRepository>
+<SigningMethods>
+<!-- All signing methods supported in the e-justice portal.-->
+	
+	<!-- Smart card-->
+	<SigningMethod>
+		<category>1</category>
+		<needsJavaScript>true</needsJavaScript>
+		<needsJava>true</needsJava>
+		<code>sc</code>
+		<jspPage>dynform_dss_applet.jsp</jspPage>		
+	</SigningMethod>
+
+	<!-- External (off-line) signature -->
+	<SigningMethod>
+		<category>1</category>
+		<needsJavaScript>false</needsJavaScript>
+		<needsJava>false</needsJava>
+		<code>ext</code>
+		<jspPage>dynform_dss_external.jsp</jspPage>
+	</SigningMethod>
+
+	<!-- Austrian Mobile Phone signature -->
+	<SigningMethod>
+		<category>2</category>	
+		<needsJavaScript>false</needsJavaScript>
+		<needsJava>false</needsJava>
+		<code>ampss</code>
+		<jspPage>dynform_dss_ampss.jsp</jspPage>
+		<parameter>
+			<key>IFRAME_W</key>
+			<value>600</value>
+		</parameter>
+		<parameter>
+			<key>IFRAME_H</key>
+			<value>800</value>
+		</parameter>
+		<parameter>
+			<key>IFRAME_W</key>
+			<value>800</value>
+		</parameter>
+		<parameter>
+			<key>EOSS_PARSER_CLASS</key>
+			<value>eu.europa.ejusticeportal.dss.controller.eoss.ampss.AmpssParser</value>
+		</parameter>
+		<parameter>
+			<key>FORM_ACTION</key>
+			<value>https://test1.a-trust.at/mobile/https-security-layer-request/default.aspx</value>
+		</parameter>
+		<parameter>
+			<key>ENC_TYPE</key>
+			<value>application/x-www-form-urlencoded</value>
+		</parameter>
+		<parameter>
+			<key>XML_REQUEST_NAME</key>
+			<value>XMLRequest</value>
+		</parameter>
+		<parameter>
+			<key>XML_RESPONSE_NAME</key>
+			<value>XMLResponse</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_epo_a_signing_1_action.do?method=ampss&amp;mode=REDIRECT&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_testpage_action.do?method=ampss&amp;mode=REDIRECT&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NO_JS</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_eoss_action.do?method=ampss&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@&amp;mode=WAIT</value> 
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NO_JS_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_testpage_eoss_action.do?method=ampss&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@&amp;mode=WAIT</value> 
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NAME</key>
+			<value>RedirectURL</value>
+		</parameter>
+		<parameter>
+			<key>DATA_URL</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/eoss/normal?method=ampss&amp;mode=DATA&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>DATA_URL_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/eoss/testpage?method=ampss&amp;mode=DATA&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>DATA_URL_NAME</key>
+			<value>DataURL</value>
+		</parameter>
+		<parameter>
+			<key>XML_REQUEST_DATA_TEMPLATE</key>
+			<value>ampss.data.template</value>
+		</parameter>
+		<parameter>
+			<key>IGNORE_BAD_SIGNATURE_FORMAT</key>
+			<value>TRUE</value>
+		</parameter>
+	</SigningMethod>
+
+	<!-- Austrian Mobile Phone signature - Simulator -->
+	<SigningMethod>
+		<category>2</category>	
+		<needsJavaScript>false</needsJavaScript>
+		<needsJava>false</needsJava>
+		<code>ampss_simulator</code>
+		<jspPage>dynform_dss_ampss.jsp</jspPage>
+		<parameter>
+			<key>IFRAME_W</key>
+			<value>600</value>
+		</parameter>
+		<parameter>
+			<key>IFRAME_H</key>
+			<value>800</value>
+		</parameter>
+		<parameter>
+			<key>IFRAME_W</key>
+			<value>800</value>
+		</parameter>
+		<parameter>
+			<key>EOSS_PARSER_CLASS</key>
+			<value>eu.europa.ejusticeportal.dss.controller.eoss.ampss.AmpssParser</value>
+		</parameter>
+		<parameter>
+			<key>FORM_ACTION</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/ampss</value>
+		</parameter>
+		<parameter>
+			<key>ENC_TYPE</key>
+			<value>application/x-www-form-urlencoded</value>
+		</parameter>
+		<parameter>
+			<key>XML_REQUEST_NAME</key>
+			<value>XMLRequest</value>
+		</parameter>
+		<parameter>
+			<key>XML_RESPONSE_NAME</key>
+			<value>XMLResponse</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_epo_a_signing_1_action.do?method=ampss&amp;mode=REDIRECT&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_testpage_action.do?method=ampss&amp;mode=REDIRECT&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NO_JS</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_eoss_action.do?method=ampss&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@&amp;mode=WAIT</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NO_JS_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/dynform_signing_testpage_eoss_action.do?method=ampss&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@&amp;mode=WAIT</value>
+		</parameter>
+		<parameter>
+			<key>REDIRECT_URL_NAME</key>
+			<value>RedirectURL</value>
+		</parameter>
+		<parameter>
+			<key>DATA_URL</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/eoss/normal?method=ampss&amp;mode=DATA&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>
+		<parameter>
+			<key>DATA_URL_TESTPAGE</key>
+			<value>https://dgjustice-dss.arhs-developments.com/ejusticeportal/eoss/testpage?method=ampss&amp;mode=DATA&amp;DSS_EOSS_TOKEN=@@EOSS_TOKEN@@</value>
+		</parameter>		
+		<parameter>
+			<key>DATA_URL_NAME</key>
+			<value>DataURL</value>
+		</parameter>
+		<parameter>
+			<key>XML_REQUEST_DATA_TEMPLATE</key>
+			<value>ampss.data.template</value>
+		</parameter>
+	</SigningMethod>
+
+
+	<!-- Microsoft certificate store -->
+	<SigningMethod>
+		<category>3</category>
+		<needsJavaScript>true</needsJavaScript>
+		<needsJava>true</needsJava>
+		<code>installed_cert</code>
+		<jspPage>dynform_dss_applet.jsp</jspPage>
+		<platform>win</platform>
+	</SigningMethod>	
+	
+	<!-- PKCS12 certificate file -->
+	<SigningMethod>
+		<category>3</category>
+		<needsJavaScript>true</needsJavaScript>
+		<needsJava>true</needsJava>
+		<code>p12</code>
+		<jspPage>dynform_dss_applet.jsp</jspPage>
+	</SigningMethod>			
+</SigningMethods>
+</SigningConfig>

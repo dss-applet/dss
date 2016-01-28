@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>applet-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <name>Signed/stripped dependencies of the applet</name>
+	<parent>
+	    <groupId>eu.europa.ejusticeportal.dss</groupId>
+    	<artifactId>digital-signature-applet</artifactId>
+    	<version>0.14.4</version>
+    	<relativePath>../digital-signature-applet</relativePath>
+	</parent>
+	<profiles>
+	<profile>
+		<id>extras</id>
+		<modules>
+        	<module>dss-stripped-mocca</module>
+			<module>iaik_jce_me4se-signed</module>
+			<module>smcc-signed</module>
+		</modules>
+	</profile>
+	 <profile>
+            <id>sign-jars</id>
+            <build>
+                <plugins>
+		            <plugin>
+		                <groupId>org.apache.maven.plugins</groupId>
+		                <artifactId>maven-jarsigner-plugin</artifactId>               
+		                <executions>
+		                    <execution>
+		                        <id>sign</id>
+		                        <goals>
+		                            <goal>sign</goal>
+		                        </goals>
+		                    </execution>
+		                </executions>
+		            </plugin>
+            	</plugins>         
+            </build>
+        </profile>
+</profiles>
+<modules>
+	<module>bcprov-signed</module>
+	<module>bcpkix-signed</module>
+    <module>bcmail-signed</module>
+    <module>apache-commons-stripped</module>
+    <module>pdfbox-stripped</module>
+    <module>slf4j-stripped</module>
+    <module>xml-sec-stripped</module>
+    <module>dss-stripped-common</module>
+    <module>dss-stripped-document</module>
+    <module>dss-stripped-spi</module>
+</modules>
+
+</project>

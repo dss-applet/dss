@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:security="http://www.springframework.org/schema/security"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+  <mvc:annotation-driven/>
+  <context:annotation-config />
+    <mvc:interceptors>
+    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+  </mvc:interceptors>
+  <context:component-scan base-package="eu.europa.ejusticeportal.dss.demo.web" />
+  
+  <mvc:resources mapping="/images/**" location="/" />
+  <mvc:resources mapping="/scripts/**" location="/" />
+  <mvc:resources mapping="/css/**" location="/" />
+  <mvc:resources mapping="/images/**" location="/" />
+  <mvc:resources mapping="/js/**" location="/" />
+  <mvc:resources mapping="/applet/**" location="/" />
+  <mvc:resources mapping="/styles/**" location="/" />
+  <mvc:resources mapping="/themes/**" location="/" />
+  <mvc:view-controller path="/error/errorPage.html" view-name="error/errorPage" />
+  
+  <bean id="multipartResolver"
+      class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <property name="maxUploadSize" value="10000000"/>
+  </bean>
+  <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+    <property name="defaultLocale" value="en" />
+    <property name="cookieName" value="signPageLanguage" />
+    <property name="cookieMaxAge" value="31536000"/>
+  </bean>
+  <bean id="abstractViewResolver" abstract="true" class="eu.europa.ejusticeportal.dss.demo.web.view.TemplateViewResolver">
+    <property name="contentUrlParameterName" value="contentUrl" />
+    <property name="prefix" value="/WEB-INF/jsp/" />
+    <property name="suffix" value=".jsp" />
+  </bean>
+  <bean class="eu.europa.ejusticeportal.dss.demo.web.view.SignaturePageContentNegotiatingViewResolver">
+    <property name="order" value="1" />
+    <property name="mediaTypes">
+      <map>
+        <entry key="json" value="application/json" />
+      </map>
+    </property>
+    <property name="viewResolvers">
+      <list>
+
+        <bean id="templateViewResolver" class="eu.europa.ejusticeportal.dss.demo.web.view.TemplateViewResolver" parent="abstractViewResolver">
+          <property name="order" value="10" />
+          <property name="templateUrl" value="/WEB-INF/jsp/layout/template.jsp" />
+        </bean>
+      </list>
+    </property>
+    <property name="defaultViews">
+      <list>
+        <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        </bean>
+      </list>
+    </property>
+  </bean>
+  
+</beans>
