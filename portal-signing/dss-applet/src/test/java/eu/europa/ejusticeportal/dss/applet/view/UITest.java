@@ -35,6 +35,7 @@ import eu.europa.ejusticeportal.dss.common.MessageLevel;
 
 import java.util.ArrayList;
 
+import eu.europa.ejusticeportal.dss.common.Utils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,7 +57,7 @@ import com.google.gson.Gson;
 @RunWith(JUnit4.class)
 public class UITest {
 
-    private String testString = "ABC{{}}\"\',\u8888\u0001A\n\r\t<>^&/\\[[]][]12345";
+    private String testString = "ABC{{}}\"\',\n\r\t<>^&/[[]][]12345";
 
     @Before
     public void setUp() {
@@ -114,7 +115,7 @@ public class UITest {
         c1.setSelected(true);
         c1.setId("This is the id");
         c1.setVisible(false);
-        c1.setText(testString);
+        c1.setText(Utils.escape(testString));
         c1.setChanged(false);
         assertTrue(c1.isChanged());
         String json = wrapJson(c1.toJson());
@@ -127,7 +128,9 @@ public class UITest {
         assertTrue(c1.isVisible() == c2.isVisible());
         assertTrue(c1.isSelected() == c2.isSelected());
         assertTrue(c1.getId().equals(c2.getId()));
-        assertTrue(c1.getText().equals(c2.getText()));
+
+
+        assertTrue(c1.getText().equals(Utils.escape(c2.getText())));
 
         c1.reset();
         assertFalse(c1.isChanged());
@@ -151,11 +154,11 @@ public class UITest {
 
         Text option1 = new Text();
         option1.setId("option1");
-        option1.setText("Option 1 Text");
+        option1.setText(Utils.escape("Option 1 Text"));
 
         Text option2 = new Text();
         option2.setId("option2");
-        option2.setText(testString);
+        option2.setText(Utils.escape(testString));
 
         c1.addOption(option1);
         c1.addOption(option2);
@@ -194,7 +197,7 @@ public class UITest {
         c1.setSelected(true);
         c1.setId("This is the id");
         c1.setVisible(false);
-        c1.setText(testString);
+        c1.setText(Utils.escape(testString));
         c1.setChanged(false);
         c1.setUrl("http://www.google.fr/");
         assertTrue(c1.isChanged());
@@ -208,7 +211,7 @@ public class UITest {
         assertTrue(c1.isVisible() == c2.isVisible());
         assertTrue(c1.isSelected() == c2.isSelected());
         assertTrue(c1.getId().equals(c2.getId()));
-        assertTrue(c1.getText().equals(c2.getText()));
+        assertTrue(c1.getText().equals(Utils.escape(c2.getText())));
         assertTrue(c1.getUrl().equals(c2.getUrl()));
 
         c1.reset();

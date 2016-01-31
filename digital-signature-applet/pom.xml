@@ -33,8 +33,8 @@
         <commons.version.applet>2.6-stripped</commons.version.applet>
         <pdfbox.version>1.8.8</pdfbox.version>
         <pdfbox.version.applet>1.8.8-stripped</pdfbox.version.applet>
-        <dss.version>4.3.0</dss.version>
-        <dss.version.applet>4.3.0-stripped</dss.version.applet>
+        <dss.version>4.3.0-RC</dss.version>
+        <dss.version.applet>4.3.0-RC-stripped</dss.version.applet>
         <slf4j.version>1.6.4</slf4j.version>
         <slf4j.version.applet>1.6.4-stripped</slf4j.version.applet>
         <bouncycastle.version>1.51</bouncycastle.version>
@@ -51,10 +51,14 @@
 
     <repositories>
         <repository>
-            <id>arhs-public</id>
-            <name>ARhS public repository</name>
-            <layout>default</layout>
-            <url>http://maven.aris-lux.lan/nexus/content/repositories/ARhS/</url>
+            <id>joinup-releases</id>
+            <url>https://joinup.ec.europa.eu/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
 	  <repository>
 		<id>java.net2</id>
@@ -366,8 +370,8 @@
 			</dependency>		
   		 	<dependency>
   				<groupId>javax.servlet</groupId>
-  				<artifactId>servlet-api</artifactId>
-  				<version>3.0-alpha-1</version>
+  				<artifactId>javax.servlet-api</artifactId>
+  				<version>3.0.1</version>
   		 	</dependency>
             <dependency>
                 <groupId>xml-apis</groupId>

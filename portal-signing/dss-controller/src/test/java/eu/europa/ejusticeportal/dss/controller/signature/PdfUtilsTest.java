@@ -117,7 +117,6 @@ public class PdfUtilsTest {
         c.set(Calendar.YEAR, 2011);        
         params.bLevel().setSigningDate(c.getTime());
         DSSDocument sDoc = p.signDocument(dssDoc, params);
-        
         //Test that the seal is OK.
         assertTrue(TestUtils.isSealed(null, sDoc.getBytes(), token, SealMethod.SEAL_CUSTOM));
     }

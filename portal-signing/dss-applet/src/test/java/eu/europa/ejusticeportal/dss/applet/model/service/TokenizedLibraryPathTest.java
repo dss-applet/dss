@@ -30,6 +30,8 @@ import eu.europa.ejusticeportal.dss.common.Fingerprint;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -51,6 +53,16 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @PowerMockIgnore( { "org.xml.*", "javax.xml.*" })
 public class TokenizedLibraryPathTest {
 
+    private static String fileSeparator = "";
+    @BeforeClass
+    public static void setup(){
+        fileSeparator = System.getProperty("file.separator");
+        System.setProperty("file.separator","\\");
+    }
+    @AfterClass
+    public static void teardown(){
+        System.setProperty("file.separator",fileSeparator);
+    }
     /**
      * Test of tokenize method, of class TokenizedLibraryPath.
      */
@@ -64,7 +76,7 @@ public class TokenizedLibraryPathTest {
         Mockito.when(fph.getFingerprint()).thenReturn(fp);
 
         String fileSeparator = System.getProperty("file.separator");
-        String AbsolutePath = "c:/TEST/tata*titi/*/tata*/*titi/si*.dll";
+        String absolutePath = "c:/TEST/tata*titi/*/tata*/*titi/si*.dll";
         List<String> expectedSubDir = new ArrayList<String>();
         expectedSubDir.add("tata*titi");
         expectedSubDir.add("*");
@@ -72,7 +84,7 @@ public class TokenizedLibraryPathTest {
         expectedSubDir.add("*titi");
 
         TokenizedLibraryPath instance = new TokenizedLibraryPath();
-        instance.tokenize(AbsolutePath);
+        instance.tokenize(absolutePath);
         assertNotNull(instance.getFileName());
         assertNotNull(instance.getRootDirPath());
         assertNotNull(instance.getWildcardSubDirPath());
@@ -85,9 +97,9 @@ public class TokenizedLibraryPathTest {
         fileSeparator = System.getProperty("file.separator");
         Mockito.when(FingerprintHome.getInstance()).thenReturn(fph);
         Mockito.when(fph.getFingerprint()).thenReturn(fp);
-        AbsolutePath = "/opt/TEST/tata*titi/*/tata*/*titi/si*.so";
+        absolutePath = "/opt/TEST/tata*titi/*/tata*/*titi/si*.so";
         instance = new TokenizedLibraryPath();
-        instance.tokenize(AbsolutePath);
+        instance.tokenize(absolutePath);
         assertNotNull(instance.getFileName());
         assertNotNull(instance.getRootDirPath());
         assertNotNull(instance.getWildcardSubDirPath());
