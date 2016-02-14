@@ -132,7 +132,7 @@
             <groupId>eu.europa.ec.joinup.sd-dss</groupId>
             <artifactId>sscd-mocca-adapter</artifactId>
             <scope>test</scope>
-            <version>${dss.version}</version>
+            <version>4.4.0</version>
         </dependency>
     </dependencies>
 </project>

@@ -104,9 +104,11 @@ public class ValidateSignedAcrobatPdfTest {
         Mockito.when(config.getTamperedValidationLevel()).thenReturn(ValidationLevel.WARN);
         Mockito.when(config.getRevokedValidationLevel()).thenReturn(ValidationLevel.WARN);
         Mockito.when(config.getSignedValidationLevel()).thenReturn(ValidationLevel.EXCEPTION);
+        Mockito.when(config.getSealMethod()).thenReturn(SealMethod.SEAL_CUSTOM);
         Mockito.when(config.getTrustedValidationLevel()).thenReturn(ValidationLevel.WARN);
         Mockito.when(config.getWorkflowValidationLevel()).thenReturn(ValidationLevel.DISABLED);
-        Mockito.when(config.getLotlUrl()).thenReturn("https://ec.europa.eu/information_society/policy/esignature/trusted-list/tl-mp.xml");
+        //Mockito.when(config.getLotlUrl()).thenReturn("https://ec.europa.eu/information_society/policy/esignature/trusted-list/tl-mp.xml");
+        Mockito.when(config.getLotlUrl()).thenReturn("https://example.com");
         Mockito.when(config.getRefreshPeriod()).thenReturn(3600);
         RefreshingTrustedListsCertificateSource.init(hc, config);
         RefreshingTrustedListsCertificateSource.getInstance().refresh();

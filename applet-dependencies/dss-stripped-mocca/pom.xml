@@ -14,7 +14,7 @@
 		<dependency>
 		    <groupId>eu.europa.ec.joinup.sd-dss</groupId>
             <artifactId>sscd-mocca-adapter</artifactId>
-            <version>${dss.version}</version>
+            <version>4.4.0</version>
 			<exclusions>
                 <exclusion>
                     <artifactId>dss-spi</artifactId>
